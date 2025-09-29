@@ -9,32 +9,41 @@
   border-radius: 3px;
 
   // Berserking
-  &.spell-26297, &.spell-troll-berserking {
-    background-image: url('/feral/assets/berserking.jpg');
+  &.spell-26297,
+  &.spell-troll-berserking {
+    background-image: url("/feral/assets/berserking.jpg");
   }
 
-  &.spell-49803, &.spell-pounce {
-    background-image: url('/feral/assets/pounce.jpg');
+  &.spell-49803,
+  &.spell-pounce {
+    background-image: url("/feral/assets/pounce.jpg");
   }
 
-  &.spell-49802, &.spell-maim {
-    background-image: url('/feral/assets/maim.jpg');
+  &.spell-49802,
+  &.spell-maim {
+    background-image: url("/feral/assets/maim.jpg");
   }
 
-  &.spell-48461, &.spell-wrath {
-    background-image: url('/feral/assets/wrath.jpg');
+  &.spell-48461,
+  &.spell-wrath {
+    background-image: url("/feral/assets/wrath.jpg");
   }
 
-  &.spell-48465, &.spell-starfire {
-    background-image: url('/feral/assets/starfire.jpg');
+  &.spell-48465,
+  &.spell-starfire {
+    background-image: url("/feral/assets/starfire.jpg");
   }
 
-  &.spell-8921, &.spell-moonfire {
-    background-image: url('/feral/assets/moonfire.jpg');
+  &.spell-8921,
+  &.spell-moonfire {
+    background-image: url("/feral/assets/moonfire.jpg");
   }
 
-  &.spell-6785, &.spell-81170, &.spell-ravage, &.spell-ravage-stampede {
-    background-image: url('/feral/assets/ravage.jpg');
+  &.spell-6785,
+  &.spell-81170,
+  &.spell-ravage,
+  &.spell-ravage-stampede {
+    background-image: url("/feral/assets/ravage.jpg");
   }
 
   /**
@@ -42,332 +51,609 @@
    */
 
   // Adamantite Grenade
-  &.spell-30217, &.spell-boom {
-    background-image: url('/feral/assets/boom.jpg');
+  &.spell-30217,
+  &.spell-boom {
+    background-image: url("/feral/assets/boom.jpg");
   }
 
   // Dense Dynamite
   &.spell-23063 {
-    background-image: url('/feral/assets/boom.jpg');
+    background-image: url("/feral/assets/boom.jpg");
   }
 
   &.spell-30216 {
-    background-image: url('/feral/assets/boom.jpg');
+    background-image: url("/feral/assets/boom.jpg");
   }
 
   // Goblin land mine
   &.spell-4100 {
-    background-image: url('/feral/assets/mine.jpg');
+    background-image: url("/feral/assets/mine.jpg");
   }
 
   // Goblin Sapper
   &.spell-13241 {
-    background-image: url('/feral/assets/boom.jpg');
+    background-image: url("/feral/assets/boom.jpg");
   }
 
   // Super Sapper Charge
   &.spell-30486 {
-    background-image: url('/feral/assets/boom.jpg');
+    background-image: url("/feral/assets/boom.jpg");
   }
 
   /**
    * Buffs
    */
 
-  &.spell-32182, &.spell-heroism {
-    background-image: url('/feral/assets/heroism.jpg');
+  &.spell-32182,
+  &.spell-heroism {
+    background-image: url("/feral/assets/heroism.jpg");
   }
 
-  &.spell-2825, &.spell-bloodlust {
-    background-image: url('/feral/assets/bloodlust.jpg');
+  &.spell-2825,
+  &.spell-bloodlust {
+    background-image: url("/feral/assets/bloodlust.jpg");
   }
 
-  &.spell-28507, &.spell-haste-potion {
-    background-image: url('/feral/assets/haste.jpg');
+  &.spell-28507,
+  &.spell-haste-potion {
+    background-image: url("/feral/assets/haste.jpg");
   }
 
-  &.spell-35476, &.spell-351355, &.spell-drums-of-battle {
-    background-image: url('/feral/assets/drums.jpg');
+  &.spell-35476,
+  &.spell-351355,
+  &.spell-drums-of-battle {
+    background-image: url("/feral/assets/drums.jpg");
   }
 
-  &.spell-40396, &.spell-skull-of-guldan {
-    background-image: url('/feral/assets/skull-of-guldan.jpg');
+  &.spell-40396,
+  &.spell-skull-of-guldan {
+    background-image: url("/feral/assets/skull-of-guldan.jpg");
   }
 
-  &.spell-18803, &.spell-focus {
-    background-image: url('/feral/assets/focus.jpg');
+  &.spell-18803,
+  &.spell-focus {
+    background-image: url("/feral/assets/focus.jpg");
   }
 
-  &.spell-45856, &.spell-breathe-haste {
-    background-image: url('/feral/assets/haste-breath.jpg');
+  &.spell-45856,
+  &.spell-breathe-haste {
+    background-image: url("/feral/assets/haste-breath.jpg");
   }
 
-  &.spell-24907, &.spell-moonkin-aura {
-    background-image: url('/feral/assets/moonkin.jpg');
+  &.spell-24907,
+  &.spell-moonkin-aura {
+    background-image: url("/feral/assets/moonkin.jpg");
   }
 
-  &.spell-54043, &.spell-ret-aura {
-    background-image: url('/feral/assets/ret-aura.jpg');
+  &.spell-54043,
+  &.spell-ret-aura {
+    background-image: url("/feral/assets/ret-aura.jpg");
   }
 
-  &.spell-10060, &.spell-pi {
-    background-image: url('/feral/assets/pi.jpg');
+  &.spell-10060,
+  &.spell-pi {
+    background-image: url("/feral/assets/pi.jpg");
   }
 
-  &.spell-33370, &.spell-quags {
-    background-image: url('/feral/assets/quags.jpg');
+  &.spell-33370,
+  &.spell-quags {
+    background-image: url("/feral/assets/quags.jpg");
   }
 
-  &.spell-3738, &.spell-wrath-of-air {
-    background-image: url('/feral/assets/wrath-of-air.jpg');
+  &.spell-3738,
+  &.spell-wrath-of-air {
+    background-image: url("/feral/assets/wrath-of-air.jpg");
   }
 
-  &.spell-28508, &.spell-destruction {
-    background-image: url('/feral/assets/destruction.jpg');
+  &.spell-28508,
+  &.spell-destruction {
+    background-image: url("/feral/assets/destruction.jpg");
   }
 
-  &.spell-45044, &.spell-sns {
-    background-image: url('/feral/assets/sliver.jpg');
+  &.spell-45044,
+  &.spell-sns {
+    background-image: url("/feral/assets/sliver.jpg");
   }
 
-  &.spell-43712, &.spell-hsh {
-    background-image: url('/feral/assets/hsh.jpg');
+  &.spell-43712,
+  &.spell-hsh {
+    background-image: url("/feral/assets/hsh.jpg");
   }
 
-  &.spell-51953, &.spell-dark-iron-pipe {
-    background-image: url('/feral/assets/pipe.jpg');
+  &.spell-51953,
+  &.spell-dark-iron-pipe {
+    background-image: url("/feral/assets/pipe.jpg");
   }
 
-  &.spell-35163, &.spell-icon-crescent {
-    background-image: url('/feral/assets/crescent.jpg');
+  &.spell-35163,
+  &.spell-icon-crescent {
+    background-image: url("/feral/assets/crescent.jpg");
   }
 
-  &.spell-55637, &.spell-lightweave {
-    background-image: url('/feral/assets/lightweave.jpg');
+  &.spell-55637,
+  &.spell-lightweave {
+    background-image: url("/feral/assets/lightweave.jpg");
   }
 
-  &.spell-61792, &.spell-shadowy-insight {
-    background-image: url('/feral/assets/shadowy-insight.jpg');
+  &.spell-61792,
+  &.spell-shadowy-insight {
+    background-image: url("/feral/assets/shadowy-insight.jpg");
   }
 
-  &.spell-54758, &.spell-hyperspeed {
-    background-image: url('/feral/assets/hyperspeed.jpg');
+  &.spell-54758,
+  &.spell-hyperspeed {
+    background-image: url("/feral/assets/hyperspeed.jpg");
   }
 
-  &.spell-16870, &.spell-clearcasting {
-    background-image: url('/feral/assets/spell_shadow_manaburn.jpg');
+  &.spell-16870,
+  &.spell-clearcasting {
+    background-image: url("/feral/assets/spell_shadow_manaburn.jpg");
   }
 
-  &.spell-65019, &.spell-mjolnir-runestone {
-    background-image: url('/feral/assets/mjolnir_runestone.jpg');
+  &.spell-65019,
+  &.spell-mjolnir-runestone {
+    background-image: url("/feral/assets/mjolnir_runestone.jpg");
   }
 
-  &.spell-60437, &.spell-grimtoll {
-    background-image: url('/feral/assets/grimtoll.jpg');
+  &.spell-60437,
+  &.spell-grimtoll {
+    background-image: url("/feral/assets/grimtoll.jpg");
   }
 
-  &.spell-69369, &.spell-predatory-strikes {
-    background-image: url('/feral/assets/predatory_strikes.jpg');
+  &.spell-69369,
+  &.spell-predatory-strikes {
+    background-image: url("/feral/assets/predatory_strikes.jpg");
   }
 
-  &.spell-6807, &.spell-maul {
-    background-image: url('/feral/assets/maul.jpg');
+  &.spell-6807,
+  &.spell-maul {
+    background-image: url("/feral/assets/maul.jpg");
   }
 
-  &.spell-77758, &.spell-thrash {
-    background-image: url('/feral/assets/thrash.jpg');
+  &.spell-77758,
+  &.spell-thrash {
+    background-image: url("/feral/assets/thrash.jpg");
   }
 
-  &.spell-53312, &.spell-natures_grasp {
-    background-image: url('/feral/assets/natures_grasp.jpg');
+  &.spell-53312,
+  &.spell-natures_grasp {
+    background-image: url("/feral/assets/natures_grasp.jpg");
   }
 
-  &.spell-5209, &.spell-challenging_roar {
-    background-image: url('/feral/assets/challenging_roar.jpg');
+  &.spell-5209,
+  &.spell-challenging_roar {
+    background-image: url("/feral/assets/challenging_roar.jpg");
   }
 
-  &.spell-16979, &.spell-feral_charge_bear {
-    background-image: url('/feral/assets/feral_charge_bear.jpg');
+  &.spell-16979,
+  &.spell-feral_charge_bear {
+    background-image: url("/feral/assets/feral_charge_bear.jpg");
   }
 
-  &.spell-22842, &.spell-frenzied_regeneration {
-    background-image: url('/feral/assets/frenzied_regeneration.jpg');
+  &.spell-22842,
+  &.spell-frenzied_regeneration {
+    background-image: url("/feral/assets/frenzied_regeneration.jpg");
   }
 
-  &.spell-6795, &.spell-growl {
-    background-image: url('/feral/assets/growl.jpg');
+  &.spell-6795,
+  &.spell-growl {
+    background-image: url("/feral/assets/growl.jpg");
   }
 
-  &.spell-16857, &.spell-fff, &.spell-770 {
-    background-image: url('/feral/assets/faerie_fire.jpg');
+  &.spell-16857,
+  &.spell-fff,
+  &.spell-770 {
+    background-image: url("/feral/assets/faerie_fire.jpg");
   }
 
-  &.spell-62078, &.spell-swipe, &.spell-779 {
-    background-image: url('/feral/assets/swipe.jpg');
+  &.spell-62078,
+  &.spell-swipe,
+  &.spell-779 {
+    background-image: url("/feral/assets/swipe.jpg");
   }
 
-  &.spell-1, &.spell-melee {
-    background-image: url('/feral/assets/melee.jpg');
+  &.spell-1,
+  &.spell-melee {
+    background-image: url("/feral/assets/melee.jpg");
   }
 
-  &.spell-1079, &.spell-rip {
-    background-image: url('/feral/assets/rip.jpg');
+  &.spell-1079,
+  &.spell-rip {
+    background-image: url("/feral/assets/rip.jpg");
   }
 
-  &.spell-5221, &.spell-shred {
-    background-image: url('/feral/assets/shred.jpg');
+  &.spell-5221,
+  &.spell-shred {
+    background-image: url("/feral/assets/shred.jpg");
   }
 
-  &.spell-1822, &.spell-rake {
-    background-image: url('/feral/assets/rake.jpg');
+  &.spell-1822,
+  &.spell-rake {
+    background-image: url("/feral/assets/rake.jpg");
   }
 
-  &.spell-33876, &.spell-mangle, &.spell-33878 {
-    background-image: url('/feral/assets/cat_mangle.jpg');
+  &.spell-33876,
+  &.spell-mangle,
+  &.spell-33878 {
+    background-image: url("/feral/assets/cat_mangle.jpg");
   }
 
-  &.spell-768, &.spell-cat_form {
-    background-image: url('/feral/assets/cat_form.jpg');
+  &.spell-768,
+  &.spell-cat_form {
+    background-image: url("/feral/assets/cat_form.jpg");
   }
 
-  &.spell-5487, &.spell-bear_form {
-    background-image: url('/feral/assets/bear_form.jpg');
+  &.spell-5487,
+  &.spell-bear_form {
+    background-image: url("/feral/assets/bear_form.jpg");
   }
 
-  &.spell-52610, &.spell-savage-roar {
-    background-image: url('/feral/assets/savageroar.jpg');
+  &.spell-52610,
+  &.spell-savage-roar {
+    background-image: url("/feral/assets/savageroar.jpg");
   }
 
   &.spell-rip-and-roar {
-    background-image: url('/feral/assets/ripandroar.png');
+    background-image: url("/feral/assets/ripandroar.png");
   }
 
-  &.spell-33745, &.spell-lacerate {
-    background-image: url('/feral/assets/lacerate.jpg');
+  &.spell-33745,
+  &.spell-lacerate {
+    background-image: url("/feral/assets/lacerate.jpg");
   }
 
-  &.spell-22812, &.spell-barkskin {
-    background-image: url('/feral/assets/barkskin.jpg');
+  &.spell-22812,
+  &.spell-barkskin {
+    background-image: url("/feral/assets/barkskin.jpg");
   }
 
-  &.spell-80964, &.spell-skull_bash_bear {
-    background-image: url('/feral/assets/skull_bash_bear.jpg');
+  
+  &.spell-1250619,
+  &.spell-36140,
+  &.spell-charge {
+    background-image: url("/feral/assets/ability_warrior_charge.jpg");
   }
 
-  &.spell-80965, &.spell-skull_bash_cat {
-    background-image: url('/feral/assets/skull_bash_cat.jpg');
+  &.spell-50622,
+  &.spell-46924,
+  &.spell-bladestorm {
+    background-image: url("/feral/assets/ability_warrior_charge.jpg");
   }
 
-  &.spell-48470, &.spell-gift-of-the-wild {
-    background-image: url('/feral/assets/giftofthewild.jpg');
+  &.spell-12292,
+  &.spell-113344,
+  &.spell-bloodbath {
+    background-image: url("/feral/assets/ability_warrior_bloodbath.jpg");
   }
 
-  &.spell-5217, &.spell-tigers-fury {
-    background-image: url('/feral/assets/tigersfury.jpg');
+  &.spell-7384,
+  &.spell-overpower {
+    background-image: url("/feral/assets/ability_meleedamage.jpg");
   }
 
-  &.spell-22568, &.spell-ferocious-bite {
-    background-image: url('/feral/assets/ferociousbite.jpg');
+  &.spell-86346,
+  &.spell-colossus-smash {
+    background-image: url("/feral/assets/ability_warrior_colossussmash.jpg");
   }
 
-  &.spell-14751, &.spell-inner-focus {
-    background-image: url('/feral/assets/innerfocus.jpg');
+  &.spell-1464,
+  &.spell-slam {
+    background-image: url("/feral/assets/ability_warrior_decisivestrike.jpg");
   }
 
-  &.spell-5229, &.spell-enrage {
-    background-image: url('/feral/assets/enrage.jpg');
+  &.spell-78,
+  &.spell-heroic-strike {
+    background-image: url("/feral/assets/ability_rogue_ambush.jpg");
   }
 
-  &.spell-50334, &.spell-druid-berserk {
-    background-image: url('/feral/assets/druid_berserk.jpg');
+  &.spell-12294,
+  &.spell-mortal-strike {
+    background-image: url("/feral/assets/ability_warrior_savageblow.jpg");
   }
 
-  &.spell-29166, &.spell-innervate {
-    background-image: url('/feral/assets/innervate.jpg');
+  &.spell-18499,
+  &.spell-berserker-rage {
+    background-image: url("/feral/assets/spell_nature_ancestralguardian.jpg");
   }
 
-  &.spell-48477, &.spell-rebirth {
-    background-image: url('/feral/assets/rebirth.jpg');
+  &.spell-5308,
+  &.spell-execute {
+    background-image: url("/feral/assets/inv_sword_48.jpg");
   }
 
-  &.spell-60480, &.spell-war-prisoner {
-    background-image: url('/feral/assets/motwp.jpg');
+  &.spell-12328,
+  &.spell-sweeping-strikes {
+    background-image: url("/feral/assets/ability_rogue_slicedice.jpg");
   }
 
-  &.spell-60064, &.spell-sundial {
-    background-image: url('/feral/assets/sundial.jpg');
+  &.spell-4692,
+  &.spell-bladestorm {
+    background-image: url("/feral/assets/ability_warrior_bladestorm.jpg");
   }
 
-  &.spell-56184, &.spell-twilight-serpent {
-    background-image: url('/feral/assets/serpent.jpg');
+  &.spell-126734,
+  &.spell-synapse-springs {
+    background-image: url("/feral/assets/spell_shaman_elementaloath.jpg");
   }
 
-  &.spell-60479, &.spell-forge-ember {
-    background-image: url('/feral/assets/fire.jpg');
+  &.spell-6673,
+  &.spell-battle-shout {
+    background-image: url("/feral/assets/ability_warrior_battleshout.jpg");
   }
 
-  &.spell-60471, &.spell-tome-arcane-phenomena {
-    background-image: url('/feral/assets/tome.jpg');
+  &.spell-1719,
+  &.spell-recklessness {
+    background-image: url("/feral/assets/ability_criticalstrike.jpg");
   }
 
-  &.spell-59657, &.spell-argent-valor {
-    background-image: url('/feral/assets/argent-valor.jpg');
+  &.spell-20572,
+  &.spell-blood-fury {
+    background-image: url("/feral/assets/racial_orc_berserkerstrength.jpg");
   }
 
-  &.spell-60494, &.spell-dying-curse {
-    background-image: url('/feral/assets/dying-curse.jpg');
+  &.spell-2458,
+  &.spell-berserker-stance {
+    background-image: url("/feral/assets/ability_racial_avatar.jpg");
   }
 
-  &.spell-60492, &.spell-embrace-spider {
-    background-image: url('/feral/assets/embrace-spider.jpg');
+  &.spell-6343,
+  &.spell-thunder-clap {
+    background-image: url("/feral/assets/spell_nature_thunderclap.jpg");
   }
 
-  &.spell-53908, &.spell-speed-potion {
-    background-image: url('/feral/assets/speed-potion.jpg');
+  &.spell-2457,
+  &.spell-battle-stance {
+    background-image: url("/feral/assets/ability_warrior_offensivestance.jpg");
   }
 
-  &.spell-53909, &.spell-wild-magic {
-    background-image: url('/feral/assets/wild-magic.jpg');
+  &.spell-1142,
+  &.spell-skull-banner {
+    background-image: url("/feral/assets/warrior_skullbanner.jpg");
   }
 
-  &.spell-59626, &.spell-black-magic {
-    background-image: url('/feral/assets/black-magic.jpg');
+  &.spell-52174,
+  &.spell-heroic-leap {
+    background-image: url("/feral/assets/ability_heroicleap.jpg");
   }
 
-  &.spell-64320, &.spell-rune-of-power {
-    background-image: url('/feral/assets/powerrune.jpg');
+  &.spell-122475,
+  &.spell-throw {
+    background-image: url("/feral/assets/ability_throw.jpg");
   }
 
-  &.spell-62836, &.spell-slag-imbued {
-    background-image: url('/feral/assets/slagimbued.jpg');
+  &.spell-114203,
+  &.spell-demoralizing-banner {
+    background-image: url("/feral/assets/demoralizing_banner.jpg");
   }
 
-  &.spell-64907, &.spell-devious-mind {
-    background-image: url('/feral/assets/deviousmind.jpg');
+  &.spell-1249459,
+  &.spell-shattering-throw {
+    background-image: url("/feral/assets/ability_warrior_shatteringthrow.jpg");
   }
 
-  &.spell-63277, &.spell-shadow-crash {
-    background-image: url('/feral/assets/shadowcrash.jpg');
+  &.spell-871,
+  &.spell-shield-wall {
+    background-image: url("/feral/assets/ability_warrior_shieldwall.jpg");
   }
 
-  &.spell-62807, &.spell-starlight {
-    background-image: url('/feral/assets/starlight.jpg');
+  &.spell-105706,
+  &.spell-potion-of-mogu-power {
+    background-image: url("/feral/assets/trade_alchemy_potiond5.jpg");
   }
 
-  &.spell-64713, &.spell-flame-heavens {
-    background-image: url('/feral/assets/sundial.jpg');
+  &.spell-57755,
+  &.spell-heroic-throw {
+    background-image: url("/feral/assets/inv_axe_66.jpg");
   }
 
-  &.spell-64707, &.spell-scale-fates {
-    background-image: url('/feral/assets/scalefates.jpg');
+  &.spell-7386,
+  &.spell-sunder-armor {
+    background-image: url("/feral/assets/ability_warrior_sunder.jpg");
   }
 
-  &.spell-398475, &.spell-living-flame {
-    background-image: url('/feral/assets/livingflame.jpg');
+  &.spell-97462,
+  &.spell-rallying-cry {
+    background-image: url("/feral/assets/ability_warrior_rallyingcry.jpg");
   }
 
-  &.spell-64741, &.spell-pandoras-plea {
-    background-image: url('/feral/assets/sundial.jpg');
+  &.spell-6552,
+  &.spell-pummel {
+    background-image: url("/feral/assets/inv_gauntlets_04.jpg");
+  }
+
+  &.spell-6262,
+  &.spell-healthstone {
+    background-image: url("/feral/assets/warlock_-healthstone.jpg");
+  }
+
+  &.spell-118038,
+  &.spell-die-by-the-sword {
+    background-image: url("/feral/assets/ability_warrior_challange.jpg");
+  }
+
+  &.spell-3411,
+  &.spell-intervene {
+    background-image: url("/feral/assets/ability_warrior_victoryrush.jpg");
+  }
+
+  &.spell-5246,
+  &.spell-intimidating-shout {
+    background-image: url("/feral/assets/ability_golemthunderclap.jpg");
+  }
+
+  &.spell-102060,
+  &.spell-disrupting-shout {
+    background-image: url("/feral/assets/warrior_disruptingshout.jpg");
+  }
+
+  &.spell-71,
+  &.spell-defensive-stance {
+    background-image: url("/feral/assets/ability_warrior_defensivestance.jpg");
+  }
+
+  &.spell-845,
+  &.spell-cleave {
+    background-image: url("/feral/assets/ability_warrior_cleave.jpg");
+  }
+
+  &.spell-23920,
+  &.spell-spell-reflection {
+    background-image: url("/feral/assets/ability_warrior_shieldreflection.jpg");
+  }
+
+  &.spell-114030,
+  &.spell-vigilance {
+    background-image: url("/feral/assets/ability_warrior_vigilance.jpg");
+  }
+
+  &.spell-80964,
+  &.spell-skull_bash_bear {
+    background-image: url("/feral/assets/skull_bash_bear.jpg");
+  }
+
+  &.spell-80965,
+  &.spell-skull_bash_cat {
+    background-image: url("/feral/assets/skull_bash_cat.jpg");
+  }
+
+  &.spell-48470,
+  &.spell-gift-of-the-wild {
+    background-image: url("/feral/assets/giftofthewild.jpg");
+  }
+
+  &.spell-5217,
+  &.spell-tigers-fury {
+    background-image: url("/feral/assets/tigersfury.jpg");
+  }
+
+  &.spell-22568,
+  &.spell-ferocious-bite {
+    background-image: url("/feral/assets/ferociousbite.jpg");
+  }
+
+  &.spell-14751,
+  &.spell-inner-focus {
+    background-image: url("/feral/assets/innerfocus.jpg");
+  }
+
+  &.spell-5229,
+  &.spell-enrage {
+    background-image: url("/feral/assets/enrage.jpg");
+  }
+
+  &.spell-50334,
+  &.spell-druid-berserk {
+    background-image: url("/feral/assets/druid_berserk.jpg");
+  }
+
+  &.spell-29166,
+  &.spell-innervate {
+    background-image: url("/feral/assets/innervate.jpg");
+  }
+
+  &.spell-48477,
+  &.spell-rebirth {
+    background-image: url("/feral/assets/rebirth.jpg");
+  }
+
+  &.spell-60480,
+  &.spell-war-prisoner {
+    background-image: url("/feral/assets/motwp.jpg");
+  }
+
+  &.spell-60064,
+  &.spell-sundial {
+    background-image: url("/feral/assets/sundial.jpg");
+  }
+
+  &.spell-56184,
+  &.spell-twilight-serpent {
+    background-image: url("/feral/assets/serpent.jpg");
+  }
+
+  &.spell-60479,
+  &.spell-forge-ember {
+    background-image: url("/feral/assets/fire.jpg");
+  }
+
+  &.spell-60471,
+  &.spell-tome-arcane-phenomena {
+    background-image: url("/feral/assets/tome.jpg");
+  }
+
+  &.spell-59657,
+  &.spell-argent-valor {
+    background-image: url("/feral/assets/argent-valor.jpg");
+  }
+
+  &.spell-60494,
+  &.spell-dying-curse {
+    background-image: url("/feral/assets/dying-curse.jpg");
+  }
+
+  &.spell-60492,
+  &.spell-embrace-spider {
+    background-image: url("/feral/assets/embrace-spider.jpg");
+  }
+
+  &.spell-53908,
+  &.spell-speed-potion {
+    background-image: url("/feral/assets/speed-potion.jpg");
+  }
+
+  &.spell-53909,
+  &.spell-wild-magic {
+    background-image: url("/feral/assets/wild-magic.jpg");
+  }
+
+  &.spell-59626,
+  &.spell-black-magic {
+    background-image: url("/feral/assets/black-magic.jpg");
+  }
+
+  &.spell-64320,
+  &.spell-rune-of-power {
+    background-image: url("/feral/assets/powerrune.jpg");
+  }
+
+  &.spell-62836,
+  &.spell-slag-imbued {
+    background-image: url("/feral/assets/slagimbued.jpg");
+  }
+
+  &.spell-64907,
+  &.spell-devious-mind {
+    background-image: url("/feral/assets/deviousmind.jpg");
+  }
+
+  &.spell-63277,
+  &.spell-shadow-crash {
+    background-image: url("/feral/assets/shadowcrash.jpg");
+  }
+
+  &.spell-62807,
+  &.spell-starlight {
+    background-image: url("/feral/assets/starlight.jpg");
+  }
+
+  &.spell-64713,
+  &.spell-flame-heavens {
+    background-image: url("/feral/assets/sundial.jpg");
+  }
+
+  &.spell-64707,
+  &.spell-scale-fates {
+    background-image: url("/feral/assets/scalefates.jpg");
+  }
+
+  &.spell-398475,
+  &.spell-living-flame {
+    background-image: url("/feral/assets/livingflame.jpg");
+  }
+
+  &.spell-64741,
+  &.spell-pandoras-plea {
+    background-image: url("/feral/assets/sundial.jpg");
   }
 
   /**
@@ -375,15 +661,14 @@
    */
 
   // Netherweave net
-  &.spell-31367, &.spell-net {
-    background-image: url('/feral/assets/net.jpg');
+  &.spell-31367,
+  &.spell-net {
+    background-image: url("/feral/assets/net.jpg");
   }
 
   // Plant Thornling
-  &.spell-22792, &.spell-thornling {
-    background-image: url('/feral/assets/thornling.jpg');
+  &.spell-22792,
+  &.spell-thornling {
+    background-image: url("/feral/assets/thornling.jpg");
   }
 }
-
-
-
