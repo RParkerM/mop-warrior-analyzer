@@ -215,8 +215,6 @@ export class LogsService {
             return lookup;
           }, {} as IDeathLookup);
 
-          console.log(buffs);
-
           const data: IEncounterEvents = { buffs, debuffs, casts, damage, deaths: deathLookup };
           this.eventCache[cacheId] = data;
           return data;

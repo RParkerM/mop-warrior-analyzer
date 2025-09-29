@@ -80,24 +80,56 @@ export class Spell {
 
   public static data: { [spellId: number]: ISpellData } = {
 
-    // FORMS
-    [SpellId.BEAR_FORM]: data({
+    // STANCES
+    [SpellId.BERSERKER_STANCE]: data({
       damageType: DamageType.NONE
     }),
 
-    [SpellId.CAT_FORM]: data({
+    [SpellId.BATTLE_STANCE]: data({
       damageType: DamageType.NONE
     }),
 
-    [SpellId.TRAVEL_FORM]: data({
+    [SpellId.DEFENSIVE_STANCE]: data({
       damageType: DamageType.NONE
     }),
 
-    // ABILITIES AVAILABLE IN ALL FORMS
-    [SpellId.BARKSKIN]: data({
+    [SpellId.MORTAL_STRIKE]: data({
+      damageType: DamageType.DIRECT
+    }),
+    [SpellId.OVERPOWER]: data({
+      damageType: DamageType.DIRECT
+    }),
+    [SpellId.SLAM]: data({
+      damageType: DamageType.DIRECT
+    }),
+    [SpellId.EXECUTE]: data({
+      damageType: DamageType.DIRECT
+    }),
+    [SpellId.BERSERKER_RAGE]: data({
       damageType: DamageType.NONE,
       gcd: false
     }),
+    [SpellId.HEROIC_STRIKE]: data({
+      damageType: DamageType.DIRECT,
+      gcd: false
+    }),
+    [SpellId.CHARGE]: data({
+      damageType: DamageType.NONE,
+      gcd: false
+    }),
+    [SpellId.COLOSSUS_SMASH]: data({
+      damageType: DamageType.DIRECT,
+    }),
+    
+    [SpellId.SWEEPING_STRIKES]: data({
+      damageType: DamageType.NONE,
+    }),
+
+  // BLADESTORM_TICK = 50622,
+  // BLADESTORM_CAST = 46924,
+  // BLOODBATH = 12292,
+
+    // ABILITIES AVAILABLE IN ALL FORMS
 
     [SpellId.TROLL_BERSERKING]: data({
       damageType: DamageType.NONE,

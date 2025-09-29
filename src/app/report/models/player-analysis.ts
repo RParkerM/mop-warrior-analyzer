@@ -61,6 +61,8 @@ export class PlayerAnalysis {
 
     this.setTierBonuses();
 
+    console.log(log);
+
     this.analyze();
   }
 
@@ -183,12 +185,6 @@ export class PlayerAnalysis {
     const casts = eventAnalyzer.createCasts();
     eventAnalyzer.showUnreadEvents();
     this.report = new CastsAnalyzer(this, casts).run();
-
-    const roarAnalyzer = new RoarAnalyzer(this, casts);
-    this.savageRoarDuration = roarAnalyzer.totalRoarUptime;
-
-    const fffAnalyzer = new FeralFaerieFireAnalyzer(this, casts);
-    this.feralFaerieFireCPM = fffAnalyzer.feralFaerieFireCPM;
 
     // find total possible GCDs in encounter
     this.totalGcds = new GcdAnalyzer(this).totalGcds;

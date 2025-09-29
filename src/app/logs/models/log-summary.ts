@@ -45,7 +45,7 @@ export class LogSummary {
         const actor = new Actor(friendlyData, true, this.anon);
         this.names[actor.id] = actor.name;
 
-        if ((friendlyData.icon === 'Druid-Feral' || friendlyData.icon === 'Druid') && this.hasEncounters(actor)) {
+        if ((friendlyData.icon === 'Warrior-Arms') && this.hasEncounters(actor)) {
           this.shadowPriests.push(actor);
         }
         return actor;
