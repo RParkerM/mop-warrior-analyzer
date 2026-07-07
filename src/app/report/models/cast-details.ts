@@ -168,6 +168,10 @@ export class CastDetails {
     return this.hasRage ? Math.round(this.classResources![0].amount / 10) : undefined;
   }
 
+  get rageCapped() {
+    return this.hasRage && this.classResources![0].amount >= this.classResources![0].max;
+  }
+
   get resisted() {
     return this.hitType === HitType.RESIST;
   }

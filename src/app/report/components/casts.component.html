@@ -75,8 +75,8 @@
             <span class="hits-label-abbrev">H: </span>
             <span [ngClass]="highlight.hits(cast)">{{ hits(cast) }}</span>
           </span>
-          <span class="power" *ngIf="cast.hasRage">Rage: <span class="table-accent">{{ cast.rage }}</span></span>
-          <span class="power-abbrev" *ngIf="cast.hasRage">R: <span class="table-accent">{{ cast.rage }}</span></span>
+          <span class="power" *ngIf="cast.hasRage">Rage: <span [ngClass]="cast.rageCapped ? 'text-warning' : 'table-accent'">{{ cast.rage }}</span></span>
+          <span class="power-abbrev" *ngIf="cast.hasRage">R: <span [ngClass]="cast.rageCapped ? 'text-warning' : 'table-accent'">{{ cast.rage }}</span></span>
           <span class="haste" *ngIf="false"><!--showHaste">-->>Haste: <span class="table-accent">{{ haste(cast) }}</span></span>
           <span class="power" *ngIf="false"><!--!showHaste">-->AP: <span class="table-accent">{{ cast.spellPower }}</span></span>
           <span [ngClass]="{'damage':true, 'vis-hidden':!isDamage(cast)}" *ngIf="!cast.failed">

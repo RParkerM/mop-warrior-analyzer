@@ -86,6 +86,22 @@ export class StatHighlights {
   }
 
   /**
+   * Percent of casts made while rage-capped
+   * @param data
+   */
+   rageCap(data: number) {
+    return this.textHighlight(this.evaluator.threshold('rageCapPercent', data));
+  }
+
+  /**
+   * Estimated rage wasted to overcap, per minute
+   * @param data
+   */
+   rageWaste(data: number) {
+    return this.textHighlight(this.evaluator.threshold('rageWastePerMinute', data));
+  }
+
+  /**
    * DPS lost to early MF clipping
    * @param lostDps
    */

@@ -141,6 +141,11 @@ export class Spell {
       damageType: DamageType.NONE,
     }),
 
+    [SpellId.WHIRLWIND]: data({
+      damageType: DamageType.DIRECTAOE,
+      multiTarget: true,
+    }),
+
     [SpellId.BLADESTORM_CAST]: data({
       damageType: DamageType.DOT,
       damageIds: [SpellId.BLADESTORM_TICK],

@@ -96,6 +96,22 @@ export class StatEvaluator {
         [Status.NOTICE]: 90,
         [Status.WARNING]: 80
       }
+    },
+
+    // Percent of casts made while rage-capped
+    rageCapPercent: {
+      levels: {
+        [Status.WARNING]: 10,
+        [Status.NOTICE]: 5
+      }
+    },
+
+    // Estimated rage wasted to overcap, per minute
+    rageWastePerMinute: {
+      levels: {
+        [Status.WARNING]: 15,
+        [Status.NOTICE]: 8
+      }
     }
   };
 

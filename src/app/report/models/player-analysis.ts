@@ -15,6 +15,7 @@ import { CombatantInfo } from 'src/app/logs/models/combatant-info';
 import { Settings } from 'src/app/settings';
 import { EventPreprocessor } from 'src/app/report/analysis/event-preprocessor';
 import { DebuffUptimeAnalyzer } from 'src/app/report/analysis/debuff-uptime-analyzer';
+import { IRageStats, RageAnalyzer } from 'src/app/report/analysis/rage-analyzer';
 import { AuraId } from 'src/app/logs/models/aura-id.enum';
 
 export class PlayerAnalysis {
@@ -29,6 +30,7 @@ export class PlayerAnalysis {
   public totalGcds: number;
   public colossusSmashUptime: number;
   public deepWoundsUptime: number;
+  public rageStats: IRageStats;
 
   private _rawStats: ActorStats;
   private _rawEvents: IEncounterEvents;
@@ -131,6 +133,9 @@ export class PlayerAnalysis {
     // debuff uptimes
     this.colossusSmashUptime = new DebuffUptimeAnalyzer(this, AuraId.COLOSSUS_SMASH).totalUptime;
     this.deepWoundsUptime = new DebuffUptimeAnalyzer(this, AuraId.DEEP_WOUNDS).totalUptime;
+
+    // rage cap/waste
+    this.rageStats = new RageAnalyzer(this).stats;
 
     // Cache result
     PlayerAnalysis._cache[PlayerAnalysis.cacheKey(this.log.id, this.playerId, this.encounter.id)] = this;
