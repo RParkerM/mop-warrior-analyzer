@@ -39,8 +39,8 @@ export class ParamsService {
   forNavigation() {
     const params = this.all();
 
-    // reset MF ticks if we're navigating to a new player/encounter and not actively viewing MF tab
-    if (params.tab !== Tab.Flay.toString()) {
+    // reset ticks if we're navigating to a new player/encounter and not actively viewing the timeline tab
+    if (params.tab !== Tab.Timeline.toString()) {
       delete params.ticks;
     }
 

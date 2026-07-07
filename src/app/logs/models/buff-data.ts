@@ -55,249 +55,100 @@ export class Buff {
   }
 
   public static data: IBuffLookup = {
-    [AuraId.ARGENT_VALOR]: buff({
+    // Warrior offensive buffs
+    [AuraId.RECKLESSNESS]: buff({
       trigger: BuffTrigger.ON_USE,
       summaryIcon: true
     }),
 
+    [AuraId.ENRAGE]: buff({
+      trigger: BuffTrigger.EXTERNAL,
+      summaryIcon: true
+    }),
+
+    [AuraId.BERSERKER_RAGE]: buff({
+      trigger: BuffTrigger.ON_USE,
+      summaryIcon: true
+    }),
+
+    [AuraId.BLOODBATH]: buff({
+      trigger: BuffTrigger.ON_USE,
+      summaryIcon: true
+    }),
+
+    [AuraId.SWEEPING_STRIKES]: buff({
+      trigger: BuffTrigger.CAST_END,
+      summaryIcon: true
+    }),
+
+    [AuraId.SKULL_BANNER]: buff({
+      trigger: BuffTrigger.EXTERNAL,
+      summaryIcon: true
+    }),
+
+    [AuraId.SKULL_BANNER_ALT]: buff({
+      trigger: BuffTrigger.EXTERNAL,
+      summaryIcon: true
+    }),
+
+    [AuraId.DIE_BY_THE_SWORD]: buff({
+      trigger: BuffTrigger.ON_USE
+    }),
+
+    [AuraId.SHIELD_WALL]: buff({
+      trigger: BuffTrigger.ON_USE
+    }),
+
+    // Racials
     [AuraId.TROLL_BERSERKING]: buff({
       haste: 0.2,
       trigger: BuffTrigger.ON_USE,
       summaryIcon: true
     }),
 
-    [AuraId.BLACK_MAGIC]: buff({
-      hasteRating: 250,
-      trigger: BuffTrigger.EXTERNAL,
+    [AuraId.BLOOD_FURY]: buff({
+      trigger: BuffTrigger.ON_USE,
       summaryIcon: true
     }),
 
+    // External haste effects (attack speed; does not affect the warrior GCD)
     [AuraId.BLOODLUST]: buff({
       haste: 0.3,
       trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.POWER_INFUSION],
-      summaryIcon: true
-    }),
-
-    [AuraId.DEMONIC_PACT]: buff({
-      detailsIcon: false
-    }),
-
-    [AuraId.DEVIOUS_MIND]: buff({
-      trigger: BuffTrigger.CAST_END,
-      summaryIcon: true,
-      hasteRating: 240
-    }),
-
-    [AuraId.DRUMS_OF_BATTLE]: buff({
-      hasteRating: 80,
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.DYING_CURSE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.EMBRACE_SPIDER]: buff({
-      hasteRating: 505,
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.GREATER_DRUMS_OF_BATTLE]: buff({
-      hasteRating: 80,
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.FLAME_OF_THE_HEAVENS]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.FORGE_EMBER]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.HASTE]: buff({
-      hasteRating: 400,
-      trigger: BuffTrigger.ON_USE,
+      doesNotStackWith: [AuraId.HEROISM, AuraId.TIME_WARP, AuraId.ANCIENT_HYSTERIA],
       summaryIcon: true
     }),
 
     [AuraId.HEROISM]: buff({
       haste: 0.3,
       trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.POWER_INFUSION],
+      doesNotStackWith: [AuraId.BLOODLUST, AuraId.TIME_WARP, AuraId.ANCIENT_HYSTERIA],
       summaryIcon: true
     }),
 
-    [AuraId.HYPERSPEED_ACCELERATION]: buff({
-      hasteRating: 340,
+    [AuraId.TIME_WARP]: buff({
+      haste: 0.3,
+      trigger: BuffTrigger.EXTERNAL,
+      doesNotStackWith: [AuraId.BLOODLUST, AuraId.HEROISM, AuraId.ANCIENT_HYSTERIA],
+      summaryIcon: true
+    }),
+
+    [AuraId.ANCIENT_HYSTERIA]: buff({
+      haste: 0.3,
+      trigger: BuffTrigger.EXTERNAL,
+      doesNotStackWith: [AuraId.BLOODLUST, AuraId.HEROISM, AuraId.TIME_WARP],
+      summaryIcon: true
+    }),
+
+    // Consumables / professions
+    [AuraId.POTION_OF_MOGU_POWER]: buff({
       trigger: BuffTrigger.ON_USE,
       summaryIcon: true
     }),
 
-    [AuraId.OOC_CLEARCASTING]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.FERAL_BERSERK]: buff({
-      trigger: BuffTrigger.CAST_END,
-      summaryIcon: true
-    }),
-
-    [AuraId.MJOLNIR_RUNESTONE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.GRIM_TOLL]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.SAVAGE_ROAR]: buff({
-      trigger: BuffTrigger.CAST_END,
-      summaryIcon: true
-    }),
-
-    [AuraId.PREDATORY_STRIKES]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.INNER_FOCUS]: buff({
+    [AuraId.SYNAPSE_SPRINGS]: buff({
       trigger: BuffTrigger.ON_USE,
       summaryIcon: true
-    }),
-
-    [AuraId.LIGHTWEAVE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.LIVING_FLAME]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.MOONKIN_AURA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.RETRIBUTION_AURA],
-      dynamic: (baseData, settings) => ({
-        haste: settings.improvedMoonkinAura ? 0.03 : 0
-      })
-    }),
-
-    [AuraId.PANDORAS_PLEA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.POWER_INFUSION]: buff({
-      haste: 0.2,
-      trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.HEROISM, AuraId.BLOODLUST],
-      summaryIcon: true
-    }),
-
-    [AuraId.RETRIBUTION_AURA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.MOONKIN_AURA],
-      dynamic: (baseData, settings) => ({
-        haste: settings.improvedRetAura ? 0.03 : 0
-      })
-    }),
-
-    [AuraId.RUNE_OF_POWER]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      summaryIcon: true
-    }),
-
-    [AuraId.SCALE_OF_FATES]: buff({
-      trigger: BuffTrigger.ON_USE,
-      hasteRating: 457,
-      summaryIcon: true
-    }),
-
-    [AuraId.SHADOWY_INSIGHT]: buff({
-      trigger: BuffTrigger.EXTERNAL
-    }),
-
-    [AuraId.SHADOW_CRASH]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      haste: 1,
-      summaryIcon: true
-    }),
-
-    [AuraId.SLAG_IMBUED]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      haste: 1,
-      debuff: true,
-      summaryIcon: true
-    }),
-
-    [AuraId.SPEED_POTION]: buff({
-      hasteRating: 500,
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.STARLIGHT]: buff({
-      name: 'Starlight',
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      haste: 0.5,
-      summaryIcon: true,
-      infer: (analysis) => analysis.encounter.boss === 751, // Hodir
-      inferenceThresholds: {
-        add: 0.4,
-        remove: 0.3
-      }
-    }),
-
-    [AuraId.SUNDIAL]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.TOME_ARCANE_PHENOMENA]: buff({
-      hasteRating: 256,
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.TWILIGHT_SERPENT]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.WAR_PRISONER]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.WILD_MAGIC]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.WRATH_OF_AIR]: buff({
-      haste: 0.05,
-      trigger: BuffTrigger.EXTERNAL,
-      infer: (analysis) => analysis.applyWrathOfAir,
-      name: 'Wrath of Air', // name used when inferring
-      inferenceThresholds: {
-        add: .035,
-        remove: .025
-      }
     })
   }
 }

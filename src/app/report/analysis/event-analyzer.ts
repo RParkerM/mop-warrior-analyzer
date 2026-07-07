@@ -12,8 +12,6 @@ import { LogSummary } from 'src/app/logs/models/log-summary';
 import { mapSpellId, SpellId } from 'src/app/logs/models/spell-id.enum';
 import { matchTarget } from 'src/app/report/analysis/utils';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
-import { AuraId } from 'src/app/logs/models/aura-id.enum';
-import { ResourceType } from 'src/app/logs/models/resource-type.enum';
 import { duration } from '../models/stat-utils';
 
 export class EventAnalyzer {
@@ -72,45 +70,13 @@ export class EventAnalyzer {
       currentCast: ICastData,
       castBuffs: IBuffEvent[] = [],
       activeStats: IHasteStats | null = null,
-      startingCast: ICastData | null = null,
-      lastEnergy: number | null = null,
-      lastEnergyTimestamp: number | null = null;
+      startingCast: ICastData | null = null;
 
     const casts: CastDetails[] = [];
 
 
     while (this.events.length > 0) {
       event = this.events.shift() as IEventData;
-
-      let eventEnergy: number | undefined = undefined;
-
-      // Check for energy
-      const energy = event.classResources?.find(x => x.type === ResourceType.ENERGY);
-      if (energy) {
-        eventEnergy = energy.amount;
-        const energyCost =
-          Spell.energyCost(event.ability.guid,
-            this.buffs.some(x => x.id == AuraId.FERAL_BERSERK),
-            this.buffs.some(x => x.id == AuraId.OOC_CLEARCASTING)
-          );
-        lastEnergy = eventEnergy - energyCost;
-        if (lastEnergy < 0) {
-          if (event.ability.guid != SpellId.BITE) {
-            const tsFormatted = (event.timestamp - this.analysis.encounter.start) / 1000;
-            console.log(`${tsFormatted} Negative Energy Encountered ${lastEnergy} cost ${energyCost}`);
-            console.log(event);
-            console.log(this.buffs.slice());
-          }
-          lastEnergy = 0;
-        }
-        lastEnergyTimestamp = event.timestamp;
-      }
-      else if (lastEnergyTimestamp !== null && lastEnergy !== null) {
-        const delta = event.timestamp - lastEnergyTimestamp;
-        const gainedEnergy = delta / 100;
-        eventEnergy = lastEnergy + gainedEnergy;
-        eventEnergy = Math.min(eventEnergy, 100);
-      }
 
       switch (event.type) {
         case 'applybuff':
@@ -159,7 +125,7 @@ export class EventAnalyzer {
       }
 
 
-      const spellData = Spell.get(castId, this.analysis.settings, activeStats.totalHaste - 1, this.analysis.tierBonuses);
+      const spellData = Spell.get(castId, this.analysis.settings, activeStats.totalHaste - 1);
 
       const details = new CastDetails({
         castId,
@@ -177,7 +143,6 @@ export class EventAnalyzer {
         haste: activeStats!.totalHaste - 1,
         gcd: spellData.gcd ? activeStats!.gcd : 0,
         classResources: currentCast.classResources,
-        energy: eventEnergy !== undefined ? eventEnergy as number : undefined,
       });
 
 
@@ -378,7 +343,7 @@ export class EventAnalyzer {
   }
 
   private setMultiInstanceDamage(cast: CastDetails) {
-    const spellData = Spell.get(cast.spellId, this.analysis.settings, undefined, this.analysis.tierBonuses); // use base data for duration since haste can have errors
+    const spellData = Spell.get(cast.spellId, this.analysis.settings); // use base data for duration since haste can have errors
     let i = 0;
     let instances: DamageInstance[] = [];
     let instancesById: { [id: number]: number } = {};

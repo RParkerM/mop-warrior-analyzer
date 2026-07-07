@@ -18,8 +18,7 @@ import { StatHighlights } from 'src/app/report/analysis/stat-highlights';
 import { ParamsService, ParamType } from 'src/app/params.service';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import * as StatUtils from 'src/app/report/models/stat-utils';
-import { Buff, IBuffDetails } from 'src/app/logs/models/buff-data';
-import { AuraId } from 'src/app/logs/models/aura-id.enum';
+import { IBuffDetails } from 'src/app/logs/models/buff-data';
 
 @Component({
   selector: 'casts',
@@ -143,10 +142,6 @@ export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
     return Spell.baseData(cast.spellId).damageType === DamageType.DOT;
   }
 
-  isPredStrikesInstance(cast: CastDetails, buff: IBuffDetails){
-    return buff.id != AuraId.PREDATORY_STRIKES || cast.baseCastTime > 0;
-  }
-
   isChannel(cast: CastDetails) {
     return Spell.baseData(cast.spellId).damageType === DamageType.CHANNEL;
   }
@@ -156,8 +151,7 @@ export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   expectHits(cast: CastDetails) {
-    return !cast.failed && ([DamageType.DOT, DamageType.CHANNEL, DamageType.AOE, DamageType.DIRECTAOE].includes(Spell.baseData(cast.spellId).damageType)) 
-    && (cast.spellId != SpellId.MAUL || cast.hits > 1);
+    return !cast.failed && ([DamageType.DOT, DamageType.CHANNEL, DamageType.AOE, DamageType.DIRECTAOE].includes(Spell.baseData(cast.spellId).damageType));
   }
 
   maxRank(cast: CastDetails) {
@@ -171,8 +165,7 @@ export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   hits(cast: CastDetails) {
-    // const spellData = Spell.baseData(cast.spellId);
-    const spellData = Spell.get(cast.spellId, this.analysis.settings, undefined, this.analysis.tierBonuses);
+    const spellData = Spell.get(cast.spellId, this.analysis.settings);
     let hits = cast.hits.toString();
 
     if (this.maxHits(cast)) {

@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('WOTLK Feral (Cat) Analyzer');
+    this.title.setTitle('MoP Arms Warrior Analyzer');
     this.player.valueChanges.subscribe(() => {
       this.filterEncounters();
     })
@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit {
         this.encounter.enable();
         this.player.enable();
 
-        if (summary.shadowPriests.length === 1) {
-          this.player.setValue(summary.shadowPriests[0].id);
+        if (summary.warriors.length === 1) {
+          this.player.setValue(summary.warriors[0].id);
           this.encounterSelect.focus();
         } else {
           this.playerSelect.focus();

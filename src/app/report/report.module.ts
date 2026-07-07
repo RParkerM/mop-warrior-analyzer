@@ -21,7 +21,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { CastsComponent } from 'src/app/report/components/casts.component';
-import { ExportComponent } from 'src/app/report/components/export.component';
 import { ReportDetailsComponent } from 'src/app/report/components/report-details.component';
 import { ReportWrapperComponent } from 'src/app/report/report-wrapper.component';
 import { SettingsComponent } from 'src/app/report/components/settings.component';
@@ -31,7 +30,6 @@ import { SummaryComponent } from 'src/app/report/components/summary.component';
 @NgModule({
   declarations: [
     CastsComponent,
-    ExportComponent,
     ReportDetailsComponent,
     ReportWrapperComponent,
     SettingsComponent,

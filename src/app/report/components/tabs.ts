@@ -1,24 +1,13 @@
 import { SpellId } from 'src/app/logs/models/spell-id.enum';
 import { TimelineSummary } from 'src/app/report/summary/timeline.summary';
 import { BaseSummary } from 'src/app/report/summary/base.summary';
-import { DevouringPlagueSummary } from 'src/app/report/summary/devouring-plague.summary';
-import { VampiricTouchSummary } from 'src/app/report/summary/vampiric-touch.summary';
-import { PainSummary } from 'src/app/report/summary/pain.summary';
-import { MindFlaySummary } from 'src/app/report/summary/mind-flay.summary';
-import { DeathSummary } from 'src/app/report/summary/death.summary';
-import { MindBlastSummary } from 'src/app/report/summary/mind-blast.summary';
-import { SavageRoarSummary } from '../summary/savage-roar.summary';
+import { MortalStrikeSummary } from 'src/app/report/summary/mortal-strike.summary';
+import { ColossusSmashSummary } from 'src/app/report/summary/colossus-smash.summary';
 
 export enum Tab {
   Timeline = 0,
-  DP,
-  VT,
-  SWP,
-  MB,
-  Death,
-  Flay,
-  Rip,
-  SR
+  MortalStrike,
+  ColossusSmash
 }
 
 export const TabDefinitions: ITabDefinition[] = [
@@ -29,21 +18,20 @@ export const TabDefinitions: ITabDefinition[] = [
     summaryType: TimelineSummary
   },
 
-  // Tab.Rip
+  // Tab.MortalStrike
   {
-    label: 'Rip',
-    icon: 'rip',
-    spellId: SpellId.RIP,
-    summaryType: DevouringPlagueSummary
+    label: 'Mortal Strike',
+    icon: 'mortal-strike',
+    spellId: SpellId.MORTAL_STRIKE,
+    summaryType: MortalStrikeSummary
   },
 
-  // Tab.Roar
+  // Tab.ColossusSmash
   {
-    label: 'Rip/Roar',
-    // icon: 'savage-roar',
-    icon: 'rip-and-roar',
-    spellId: SpellId.RIP_AND_ROAR,
-    summaryType: SavageRoarSummary
+    label: 'Colossus Smash',
+    icon: 'colossus-smash',
+    spellId: SpellId.COLOSSUS_SMASH,
+    summaryType: ColossusSmashSummary
   },
 ];
 

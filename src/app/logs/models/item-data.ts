@@ -33,35 +33,6 @@ export class Item {
 
   }
 
-  public static HasTier7bonus2p(gear: Array<IGearInfo>): boolean {
-    let itemsFound = 0;
-    for (let i = 0; i < gear.length; i++) {
-      if (this.Tier8Items.includes(gear[i].id)) {
-        itemsFound++;
-      }
-      if (itemsFound >= 2) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private static Tier8Items: Array<number> = [
-    // valourous
-    40472, //hands
-    40473, //helm
-    40493, //legs
-    40471, //chest
-    40494, //shoulders
-
-    // heroes
-    39557, //hands
-    39553, //helm
-    39555, //legs
-    39554, //chest
-    39556, //shoulders
-  ]
-
   public static dataByItemId: { [spellId: number]: IItemData } =
     Object.keys(Item.data).reduce((lookup, next) => {
       const itemId = parseInt(next),

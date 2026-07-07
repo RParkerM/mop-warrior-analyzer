@@ -30,7 +30,6 @@ export class CastDetails {
   hits = 0;
   crits = 0;
   spellPower = 0;
-  energy: number | undefined = undefined;
   // for DoTs/flay (spells with multiple damage ticks), did this cast clip a previous cast
   clippedPreviousCast = false;
   clippedTicks = 0;
@@ -58,13 +57,8 @@ export class CastDetails {
   // damage truncated by death of mob?
   truncated = false;
 
-  // energy or rage values attached?
+  // rage values attached?
   classResources?: Array<IClassResources>;
-
-  // combo points
-  CP?: number;
-
-  CPchange?: number;
 
   gcd = 0;
   haste = 0;
@@ -92,8 +86,6 @@ export class CastDetails {
     this.gcd = params.gcd;
     this.classResources = params.classResources;
     this.baseCastTime = HasteUtils.castTime(this.spellId, params.haste);
-    this.CP = params.CP;
-    this.energy = params.energy;
   }
 
   setInstances(instances: DamageInstance[]) {
@@ -105,10 +97,6 @@ export class CastDetails {
       absorbed += next.absorbed;
       resisted += next.resisted;
       targets.push(next.targetId);
-
-      // if(this.spellId == SpellId.RAKE){
-      //   console.log(next);
-      // }
 
       if (![HitType.RESIST, HitType.IMMUNE].includes(next.hitType)) {
         hits++;
@@ -172,25 +160,12 @@ export class CastDetails {
       ([HitType.BLOCK, HitType.CRIT_BLOCK].includes(this.hitType) && this.totalDamage == 0);
   }
 
-  get hasEnergy() {
-    return this.energy !== undefined;
-  }
-
-  get hasCPChange(){
-    // we use != to test for both 0 and undefined
-    return this.CPchange != 0;
-  }
-
-  get getEnergy() {
-    return this.energy !== undefined ? Math.round(this.energy) : undefined;
-  }
-
-  get hasCP() {
-    return this.CP !== undefined;
-  }
-
   get hasRage() {
     return this.classResources && this.classResources[0].type === 1;
+  }
+
+  get rage() {
+    return this.hasRage ? Math.round(this.classResources![0].amount / 10) : undefined;
   }
 
   get resisted() {
@@ -202,8 +177,7 @@ export class CastDetails {
   }
 
   get crit() {
-    return (this.spellId === SpellId.RAKE && this.instances.length > 0 && this.instances[0].isCrit) ||
-    this.hitType === HitType.CRIT || this.hitType === HitType.CRIT_PARTIAL_RESIST;
+    return this.hitType === HitType.CRIT || this.hitType === HitType.CRIT_PARTIAL_RESIST;
   }
 
   hasSameTarget(other: CastDetails) {
@@ -288,6 +262,4 @@ interface ICastDetailsParams {
   haste: number;
   gcd: number;
   buffs: IBuffDetails[];
-  CP?: number;
-  energy: number | undefined;
 }

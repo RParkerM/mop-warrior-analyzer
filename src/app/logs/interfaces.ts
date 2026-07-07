@@ -75,10 +75,6 @@ export interface IDamageData extends IEventData {
   hitPoints: number;
 }
 
-export interface TierBonuses {
-  tier7_2p: boolean
-}
-
 export interface IDeathData extends IEventData {
   type: 'death';
 }

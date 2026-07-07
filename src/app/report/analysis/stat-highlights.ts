@@ -70,11 +70,19 @@ export class StatHighlights {
   }
 
   /**
-   * Uptime
+   * Uptime (percent)
    * @param data
    */
    uptime(data: number) {
-    return this.textHighlight(this.evaluator.uptime('ripUptime', data));
+    return this.textHighlight(this.evaluator.uptime('colossusSmashUptime', data));
+  }
+
+  /**
+   * Cooldown ability efficiency (percent of possible casts used)
+   * @param data
+   */
+   efficiency(data: number) {
+    return this.textHighlight(this.evaluator.uptime('cooldownEfficiency', data));
   }
 
   /**

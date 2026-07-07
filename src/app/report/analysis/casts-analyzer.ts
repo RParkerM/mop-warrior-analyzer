@@ -5,7 +5,6 @@ import { HitType } from 'src/app/logs/models/hit-type.enum';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import { HasteUtils } from 'src/app/report/models/haste';
 import { Buff, IBuffDetails } from 'src/app/logs/models/buff-data';
-import { SpellId } from 'src/app/logs/models/spell-id.enum';
 
 export class CastsAnalyzer {
   private static MAX_LATENCY = 1000; // ignore latency for gaps large enough to represent intentional movement
@@ -19,9 +18,6 @@ export class CastsAnalyzer {
   private analysis: PlayerAnalysis;
   private casts: CastDetails[];
   private inferred: { [auraId: number]: IBuffDetails };
-  private currentCP: number;
-  private lastCPTargetId: number;
-  private lastCPTargetInstance: number;
 
   constructor(analysis: PlayerAnalysis, casts: CastDetails[]) {
     this.analysis = analysis;
@@ -31,16 +27,13 @@ export class CastsAnalyzer {
   public run(): Report {
     const inferrableBuffs = Buff.inferrable(this.analysis),
       doInference = inferrableBuffs.length > 0;
-    this.currentCP = 0;
 
     this.inferred = {};
 
     for (let i = 0; i < this.casts.length; i++) {
       const current = this.casts[i],
-        spellData = Spell.get(current.spellId, this.analysis.settings, current.haste, this.analysis.tierBonuses);
+        spellData = Spell.get(current.spellId, this.analysis.settings, current.haste);
       let prevCastData;
-
-      this.setComboPoints(current);
 
       if (doInference && HasteUtils.canInferHaste(current, spellData)) {
         this.updateInferredBuffs(current, spellData, inferrableBuffs);
@@ -87,64 +80,6 @@ export class CastsAnalyzer {
     return new Report(this.analysis, this.casts);
   }
 
-  private setComboPoints(current: CastDetails) {
-
-    const CPGenerators = [SpellId.RAKE, SpellId.MANGLE_CAT, SpellId.SHRED, SpellId.POUNCE, SpellId.RAVAGE];
-    const CPSpenders = [SpellId.RIP, SpellId.ROAR, SpellId.BITE, SpellId.MAIM];
-
-    const CPAbilities = CPGenerators.concat(CPSpenders);
-
-    if (!CPAbilities.includes(current.spellId))
-      return;
-
-    if (this.lastCPTargetId != current.targetId || this.lastCPTargetInstance != current.targetInstance) {
-      this.currentCP = 0;
-    }
-
-    this.lastCPTargetId = current.targetId;
-    this.lastCPTargetInstance = current.targetInstance;
-
-    current.CP = this.currentCP;
-
-    switch (current.spellId) {
-      case SpellId.RAKE:
-        if (current.totalDamage + current.totalAbsorbed + current.totalResisted > 0) {
-          if (current.instances.length > 0 && current.instances[0].isCrit) {
-            this.currentCP += 2;
-          } else {
-            this.currentCP++;
-          }
-        }
-        break;
-      case SpellId.POUNCE:
-      case SpellId.MANGLE_CAT:
-      case SpellId.SHRED:
-      case SpellId.RAVAGE:
-        if (current.totalDamage + current.totalAbsorbed + current.totalResisted > 0) {
-          if ([HitType.CRIT, HitType.CRIT_BLOCK].includes(current.hitType)) {
-            this.currentCP += 2;
-          } else {
-            this.currentCP++;
-          }
-        }
-        break;
-      case SpellId.ROAR:
-        this.currentCP = 0;
-        break;
-      case SpellId.RIP:
-      case SpellId.BITE:
-      case SpellId.MAIM:
-        if (current.totalDamage + current.totalAbsorbed + current.totalResisted > 0) {
-          this.currentCP = 0;
-        }
-        break;
-    }
-
-    this.currentCP = Math.min(5, this.currentCP);
-
-    current.CPchange = this.currentCP - current.CP;
-  }
-
   private setCastLatency(current: CastDetails, spellData: ISpellData, index: number) {
     // ignore for off-GCD spells, last cast
     if (index > this.casts.length - 2 || !spellData.gcd) {
@@ -166,7 +101,7 @@ export class CastsAnalyzer {
     }
 
     const prev = prevData.onTarget;
-    const prevSpellData = Spell.get(prev.spellId, this.analysis.settings, prev.haste, this.analysis.tierBonuses);
+    const prevSpellData = Spell.get(prev.spellId, this.analysis.settings, prev.haste);
 
     if (prev.lastDamageTimestamp && (current.castEnd - prev.lastDamageTimestamp <= CastsAnalyzer.MAX_ACTIVE_DOWNTIME)) {
       current.dotDowntime = Math.max((current.castEnd - prev.lastDamageTimestamp) / 1000, 0);

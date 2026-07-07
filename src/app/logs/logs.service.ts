@@ -8,7 +8,7 @@ import { Buff } from 'src/app/logs/models/buff-data';
 import { CombatantInfo } from 'src/app/logs/models/combatant-info';
 import { EncounterSummary } from 'src/app/logs/models/encounter-summary';
 import { LogSummary } from 'src/app/logs/models/log-summary';
-import { PSEUDO_SPELL_BASE } from 'src/app/logs/models/spell-id.enum';
+import { PSEUDO_SPELL_BASE, SpellId } from 'src/app/logs/models/spell-id.enum';
 import { Spell } from 'src/app/logs/models/spell-data';
 import { ICombatantData, IDebuffData } from 'src/app/logs/interfaces';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
@@ -42,6 +42,12 @@ export class LogsService {
   public static TRACKED_DEBUFFS = Object.keys(Buff.data)
     .map((k) => parseInt(k))
     .filter((auraId) => Buff.isDebuff(auraId));
+
+  // debuffs the player applies to enemies, tracked for uptime analysis
+  public static TRACKED_ENEMY_DEBUFFS: number[] = [
+    SpellId.COLOSSUS_SMASH,
+    SpellId.DEEP_WOUNDS
+  ];
 
 
   private summaryCache: { [id: string]: LogSummary} = {};
@@ -206,16 +212,20 @@ export class LogsService {
         this.requestEvents<wcl.IBuffData>(log.id, 'debuffs', this.makeParams(encounter, {
           filter: `target.name="${actor.name}" AND ability.id IN (${LogsService.TRACKED_DEBUFFS.join(',')}) AND type IN ("applydebuff", "removedebuff")`
         })),
+        this.requestEvents<wcl.IDebuffData>(log.id, 'debuffs', this.makeParams(encounter, {
+          hostility: 1,
+          filter: `source.name="${actor.name}" AND ability.id IN (${LogsService.TRACKED_ENEMY_DEBUFFS.join(',')})`
+        })),
       ])
       .pipe(
-        map(([casts, damage, deaths, buffs, debuffs]) => {
+        map(([casts, damage, deaths, buffs, debuffs, enemyDebuffs]) => {
           const deathLookup = deaths.reduce((lookup, death) => {
             const key = `${death.targetID}:${death.targetInstance}`;
             lookup[key] = death.timestamp;
             return lookup;
           }, {} as IDeathLookup);
 
-          const data: IEncounterEvents = { buffs, debuffs, casts, damage, deaths: deathLookup };
+          const data: IEncounterEvents = { buffs, debuffs, enemyDebuffs, casts, damage, deaths: deathLookup };
           this.eventCache[cacheId] = data;
           return data;
         }),
@@ -281,6 +291,7 @@ export interface IDeathLookup {
 export interface IEncounterEvents {
   buffs: wcl.IBuffData[];
   debuffs: wcl.IBuffData[];
+  enemyDebuffs: wcl.IDebuffData[];
   casts: wcl.ICastData[];
   damage: wcl.IDamageData[];
   deaths: IDeathLookup;

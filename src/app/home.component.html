@@ -2,7 +2,7 @@
   <div class="content">
     <div class="header">
       <div class="logo"></div>
-      <h1 class="text-primary">Wrath Feral (Cat) Druid Analyzer</h1>
+      <h1 class="text-primary">MoP Arms Warrior Analyzer</h1>
     </div>
 
     <mat-card>
@@ -36,7 +36,7 @@
           <mat-form-field class="fill" appearance="standard">
             <mat-label>Select Player</mat-label>
             <mat-select #selectPlayer formControlName="player">
-              <mat-option *ngFor="let option of summary?.shadowPriests" [value]="option.id">
+              <mat-option *ngFor="let option of summary?.warriors" [value]="option.id">
                 {{option.name}}
               </mat-option>
             </mat-select>
@@ -58,16 +58,8 @@
       </mat-card-content>
     </mat-card>
     <div class="footer text-subdued">
-      Feral implemented by Korbah-Bloodsail Buccaneers 
-      <span class="separator">|</span>
-      <a href="https://discord.gg/classicdruid" target="_blank">@Korbah</a>
-      <span class="separator">|</span>
-      <span><a href="https://github.com/korbrawr/feral/blob/main/GLOSSARY.md" target="_blank">Glossary of Terms</a></span>
-      <span class="separator">|</span>
-      <span><a href="https://github.com/korbrawr/feral" target="_blank">Source</a></span>
-    </div>
-    <div class="footer text-subdued">
-      (The Feral Analyzer is a fork of KalonxD-Pagle's Shadow Priest Analyzer)
+      (The Arms Warrior Analyzer is a fork of Korbah's Feral Analyzer,
+      itself a fork of KalonxD-Pagle's Shadow Priest Analyzer)
     </div>
   </div>
 </div>

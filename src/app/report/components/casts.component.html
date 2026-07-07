@@ -56,7 +56,7 @@
         <mat-panel-description >
           <span class="buffs">
             <span class="buff" *ngFor="let buff of cast.summaryBuffs">
-              <span class="icon" *ngIf="isPredStrikesInstance(cast, buff)"
+              <span class="icon"
               [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"></span>
             </span>
           </span>
@@ -75,10 +75,8 @@
             <span class="hits-label-abbrev">H: </span>
             <span [ngClass]="highlight.hits(cast)">{{ hits(cast) }}</span>
           </span>
-          <span class="power" *ngIf="cast.hasCP">CP: <span class="table-accent">{{ cast.CP }}<span *ngIf="cast.hasCPChange"> ({{ format(cast.CPchange, 0, '', true)}})</span></span></span>
-          <span class="power" *ngIf="cast.hasEnergy">Energy: <span class="table-accent">{{ cast.getEnergy }}</span></span>
-          <span class="power-abbrev" *ngIf="cast.hasEnergy">E: <span class="table-accent">{{ cast.getEnergy }}</span></span>
-          <span class="power" *ngIf="cast.hasRage">Rage: <span class="table-accent">{{ cast.classResources? cast.classResources[0].amount / 10 : 0 }}</span></span>
+          <span class="power" *ngIf="cast.hasRage">Rage: <span class="table-accent">{{ cast.rage }}</span></span>
+          <span class="power-abbrev" *ngIf="cast.hasRage">R: <span class="table-accent">{{ cast.rage }}</span></span>
           <span class="haste" *ngIf="false"><!--showHaste">-->>Haste: <span class="table-accent">{{ haste(cast) }}</span></span>
           <span class="power" *ngIf="false"><!--!showHaste">-->AP: <span class="table-accent">{{ cast.spellPower }}</span></span>
           <span [ngClass]="{'damage':true, 'vis-hidden':!isDamage(cast)}" *ngIf="!cast.failed">

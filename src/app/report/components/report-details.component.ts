@@ -257,25 +257,23 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     const hasteRating = this.analysis?.actorInfo?.stats?.hasteRating;
     const hasteError = this.analysis?.report?.stats?.avgHasteError || 0;
     const castCount = this.analysis?.report?.stats?.hasteErrorCastCount || 0;
-    const inferTier7 = this.analysis.actorInfo.initFromLog == false ? this.analysis.tierBonuses.tier7_2p : undefined;
 
     // eslint-disable-next-line no-console
     console.log(`Avg Haste Error: ${Math.round(hasteError * 10000) / 100}%; Cast Count: ${castCount}`);
 
     const showHasteError = (hasteRating === undefined || (castCount > 10 && Math.abs(hasteError) > .03));
 
-    if (showHasteError || inferTier7 != undefined) {
-      this.openSnackbar(showHasteError, hasteRating === undefined ? undefined : hasteError, inferTier7);
+    if (showHasteError) {
+      this.openSnackbar(showHasteError, hasteRating === undefined ? undefined : hasteError);
     }
   }
 
-  private openSnackbar(showHasteError: boolean, hasteError?: number, inferTier7?: boolean) {
+  private openSnackbar(showHasteError: boolean, hasteError?: number) {
     if (this.settingsSvc.showHint(this.playerId, this.encounterId)) {
       this.snackBarRef = this.snackBar.openFromComponent(SettingsHintComponent, {
         data: {
           showHasteError,
           hasteError,
-          inferTier7,
           close: () => this.closeSnackbar(),
           openSettings: () => this.openSettings()
         },

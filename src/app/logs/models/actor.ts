@@ -10,7 +10,6 @@ export class Actor {
   owner: number|undefined;
   friendly: boolean;
   encounterIds: number[];
-  shadowFiendId: number;
 
   constructor(data: IActorData, friendly: boolean, anon = false) {
     this.id = data.id;

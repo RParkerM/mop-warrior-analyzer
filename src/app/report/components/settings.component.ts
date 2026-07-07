@@ -2,13 +2,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { of } from 'rxjs';
 
-import { AuraId } from 'src/app/logs/models/aura-id.enum';
 import { ParamsService } from 'src/app/params.service';
 import { SettingsService } from 'src/app/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ISettings, Settings } from 'src/app/settings';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
-import { LogSummary } from 'src/app/logs/models/log-summary';
 import { LogsService } from 'src/app/logs/logs.service';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 
@@ -56,22 +54,11 @@ export class SettingsComponent implements OnInit {
 
       this.form = new FormGroup<ISettingsForm>({
         hasteRating: new FormControl(this.logHasteRating),
-        improvedMindBlast: new FormControl(analysis.settings.improvedMindBlast, { nonNullable: true }),
-        improvedMoonkinAura: new FormControl(analysis.settings.improvedMoonkinAura, { nonNullable: true }),
-        tier7_2p: new FormControl(analysis.tierBonuses.tier7_2p, { nonNullable: true }),
-        tier8_4p: new FormControl(analysis.settings.tier8_4p, { nonNullable: true }),
-        ripGlyphActive: new FormControl(analysis.settings.ripGlyphActive, { nonNullable: true }),
-        shredGlyphActive: new FormControl(analysis.settings.shredGlyphActive, { nonNullable: true }),
-        showMelees: new FormControl(analysis.settings.showMelees, { nonNullable: true }),
-        improvedRetAura: new FormControl(analysis.settings.improvedRetAura, { nonNullable: true }),
-        wrathOfAir: new FormControl(analysis.settings.wrathOfAir, { nonNullable: true }),
-        moonkinAura: new FormControl(this.auraState(AuraId.MOONKIN_AURA), { nonNullable: true })
+        showMelees: new FormControl(analysis.settings.showMelees, { nonNullable: true })
       });
 
       if (this.analysis.actorInfo?.initFromLog) {
-        this.form.controls.tier7_2p.disable();
         this.form.controls.hasteRating.disable();
-        this.form.controls.moonkinAura.disable();
       }
     });
   }
@@ -89,12 +76,6 @@ export class SettingsComponent implements OnInit {
     // form.value excludes disabled controls. That's annoying.
     settings.hasteRating = this.form.controls.hasteRating.value;
 
-    if (!this.analysis.actorInfo?.initFromLog) {
-      if (this.form.controls.moonkinAura.value) {
-        settings.auras.push(AuraId.MOONKIN_AURA);
-      }
-    }
-
     this.settingsSvc.update(this.playerId, settings);
     this.exitSettings();
   }
@@ -104,27 +85,9 @@ export class SettingsComponent implements OnInit {
       queryParams: this.params.forNavigation()
     });
   }
-
-
-  private auraState(id: AuraId) {
-    if (this.analysis.actorInfo?.initFromLog) {
-      return this.analysis.actorInfo.haveAura(id);
-    }
-
-    return this.analysis.settings.haveAura(id);
-  }
 }
 
 interface ISettingsForm {
   hasteRating: FormControl<number|null>;
-  improvedMindBlast: FormControl<number>;
-  improvedMoonkinAura: FormControl<boolean>;
-  shredGlyphActive: FormControl<boolean>;
-  ripGlyphActive: FormControl<boolean>;
   showMelees: FormControl<boolean>;
-  tier7_2p: FormControl<boolean>;
-  tier8_4p: FormControl<boolean>;
-  improvedRetAura: FormControl<boolean>;
-  wrathOfAir: FormControl<boolean>;
-  moonkinAura: FormControl<boolean>;
 }

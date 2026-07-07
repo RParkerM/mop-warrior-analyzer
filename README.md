@@ -24,6 +24,9 @@ For information on analyzer settings, see [Configuration Settings](SETTINGS.md)
 Definitions of stats/terms available via the [Glossary](GLOSSARY.md). -->
 
 ### Changelog
+- July 7, 2026
+  - Completed the port from the feral analyzer: removed druid/priest spells, buffs, and analyses.
+  - New Arms analyses: Colossus Smash and Deep Wounds uptime, Mortal Strike / Colossus Smash cast efficiency.
+  - Mortal Strike and Colossus Smash tabs; rage shown on casts.
 - September 28, 2025
   - Initial support for Arms!
-  - Some information shown on casts has not been tailored to warriors yet, and will show info that would pertain to feral druids.
