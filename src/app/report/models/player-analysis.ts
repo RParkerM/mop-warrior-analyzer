@@ -17,6 +17,7 @@ import { EventPreprocessor } from 'src/app/report/analysis/event-preprocessor';
 import { DebuffUptimeAnalyzer } from 'src/app/report/analysis/debuff-uptime-analyzer';
 import { BuffUptimeAnalyzer } from 'src/app/report/analysis/buff-uptime-analyzer';
 import { IRageStats, RageAnalyzer } from 'src/app/report/analysis/rage-analyzer';
+import { IRagingBlowStats, RagingBlowAnalyzer } from 'src/app/report/analysis/raging-blow-analyzer';
 import { AuraId } from 'src/app/logs/models/aura-id.enum';
 import { WarriorSpec } from 'src/app/logs/models/warrior-spec.enum';
 
@@ -34,6 +35,7 @@ export class PlayerAnalysis {
   public deepWoundsUptime: number;
   public enrageUptime: number;
   public rageStats: IRageStats;
+  public ragingBlowStats?: IRagingBlowStats;
   public spec: WarriorSpec;
 
   private _rawStats: ActorStats;
@@ -143,6 +145,11 @@ export class PlayerAnalysis {
 
     // rage cap/waste
     this.rageStats = new RageAnalyzer(this).stats;
+
+    // Fury: Raging Blow charges lost to overcap/expiry
+    this.ragingBlowStats = this.spec === WarriorSpec.FURY ?
+      new RagingBlowAnalyzer(this).stats :
+      undefined;
 
     // Cache result
     PlayerAnalysis._cache[PlayerAnalysis.cacheKey(this.log.id, this.playerId, this.encounter.id)] = this;

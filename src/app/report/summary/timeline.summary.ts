@@ -8,6 +8,7 @@ import { CastStats } from 'src/app/report/models/cast-stats';
 import { DebuffUptimeFields } from './fields/debuff-uptime.fields';
 import { EfficiencyFields } from './fields/efficiency.fields';
 import { RageFields } from './fields/rage.fields';
+import { RagingBlowFields } from './fields/raging-blow.fields';
 
 /**
  * Display overall stats for all casts
@@ -18,6 +19,7 @@ export class TimelineSummary extends BaseSummary {
   private debuffUptimeFields: DebuffUptimeFields;
   private efficiencyFields: EfficiencyFields;
   private rageFields: RageFields;
+  private ragingBlowFields: RagingBlowFields;
   private encounterFields: EncounterFields;
 
   constructor(analysis: PlayerAnalysis, highlight: StatHighlights) {
@@ -28,6 +30,7 @@ export class TimelineSummary extends BaseSummary {
     this.debuffUptimeFields = new DebuffUptimeFields(this.analysis, this.highlight);
     this.efficiencyFields = new EfficiencyFields(this.analysis, this.highlight);
     this.rageFields = new RageFields(this.analysis, this.highlight);
+    this.ragingBlowFields = new RagingBlowFields(this.analysis, this.highlight);
     this.encounterFields = new EncounterFields(this.analysis, this.highlight);
   }
 
@@ -38,6 +41,7 @@ export class TimelineSummary extends BaseSummary {
       .concat(this.debuffUptimeFields.fields(stats))
       .concat([this.break()])
       .concat(this.rageFields.fields())
+      .concat(this.ragingBlowFields.fields())
       .concat(this.encounterFields.fields(stats));
   }
 }

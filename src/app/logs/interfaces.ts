@@ -80,8 +80,9 @@ export interface IDeathData extends IEventData {
 }
 
 export interface IBuffData extends IEventData {
-  type: 'applybuff' | 'removebuff' | 'refreshbuff';
+  type: 'applybuff' | 'removebuff' | 'refreshbuff' | 'applybuffstack' | 'removebuffstack';
   duration?: number;
+  stack?: number;
 }
 
 export interface IDebuffData extends IEventData {

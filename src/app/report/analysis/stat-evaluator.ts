@@ -112,6 +112,14 @@ export class StatEvaluator {
         [Status.WARNING]: 15,
         [Status.NOTICE]: 8
       }
+    },
+
+    // Raging Blow charges lost to overcap/expiry, per minute
+    ragingBlowLostPerMinute: {
+      levels: {
+        [Status.WARNING]: 2,
+        [Status.NOTICE]: 1
+      }
     }
   };
 

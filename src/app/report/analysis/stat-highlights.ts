@@ -102,6 +102,14 @@ export class StatHighlights {
   }
 
   /**
+   * Raging Blow charges lost to overcap/expiry, per minute
+   * @param data
+   */
+   ragingBlowLost(data: number) {
+    return this.textHighlight(this.evaluator.threshold('ragingBlowLostPerMinute', data));
+  }
+
+  /**
    * DPS lost to early MF clipping
    * @param lostDps
    */

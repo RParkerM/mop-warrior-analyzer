@@ -22,7 +22,8 @@ export class Buff {
     summaryIcon: false,
     detailsIcon: true,
     debuff: false,
-    infer: false
+    infer: false,
+    stacks: 1
   };
 
   public static get(ability: IAbilityData, settings: Settings): IBuffDetails {
@@ -89,7 +90,8 @@ export class Buff {
 
     // Fury: Raging Blow usable (gained on Enrage)
     [AuraId.RAGING_BLOW_PROC]: buff({
-      trigger: BuffTrigger.EXTERNAL
+      trigger: BuffTrigger.EXTERNAL,
+      summaryIcon: true
     }),
 
     [AuraId.SKULL_BANNER]: buff({
@@ -178,6 +180,7 @@ export interface IBuffDetails {
   doesNotStackWith: AuraId[];
   summaryIcon: boolean;
   detailsIcon: boolean;
+  stacks: number;
   infer: boolean | ((analysis: PlayerAnalysis) => boolean);
   inferenceThresholds?: { add: number, remove: number };
   dynamic?: (baseData: IBuffDetails, settings: Settings) => Partial<IBuffDetails>

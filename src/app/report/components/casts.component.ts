@@ -195,7 +195,8 @@ export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   buffTooltip(buff: IBuffDetails) {
-    return `${buff.name} (${buff.id})`;
+    const stacks = buff.stacks > 1 ? ` — ${buff.stacks} stacks` : '';
+    return `${buff.name} (${buff.id})${stacks}`;
   }
 
   iconClass(cast: CastDetails) {

@@ -92,11 +92,13 @@ export class EventAnalyzer {
           continue;
 
         // stack-count changes on an already-active buff (e.g. Bloodsurge,
-        // Raging Blow charges) don't change which buffs are up
+        // Raging Blow charges) don't change which buffs are up, but the
+        // count is tracked for display
         case 'applybuffstack':
         case 'removebuffstack':
         case 'applydebuffstack':
         case 'removedebuffstack':
+          this.updateBuffStacks(event as IBuffData);
           continue;
 
         case 'begincast':
@@ -324,6 +326,20 @@ export class EventAnalyzer {
     if (index >= 0) {
       this.buffs.splice(index, 1);
     }
+  }
+
+  // casts hold references to buff data snapshots, so replace the data
+  // object rather than mutating the stack count in place
+  private updateBuffStacks(event: IBuffData) {
+    const existing = this.buffs.find((b) => b.id === event.ability.guid);
+    if (!existing) {
+      return;
+    }
+
+    const change = ['applybuffstack', 'applydebuffstack'].includes(event.type) ? 1 : -1;
+    const stacks = event.stack ?? Math.max(existing.data.stacks + change, 1);
+    existing.data = Object.assign({}, existing.data, { stacks });
+    existing.event = event;
   }
 
   private setDamage(cast: CastDetails, spellData: ISpellData) {

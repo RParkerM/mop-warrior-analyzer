@@ -57,7 +57,8 @@
           <span class="buffs">
             <span class="buff" *ngFor="let buff of cast.summaryBuffs">
               <span class="icon"
-              [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"></span>
+              [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"><span
+                class="stack-count" *ngIf="buff.stacks > 1">{{ buff.stacks }}</span></span>
             </span>
           </span>
           <span class="downtime" *ngIf="spellId && isDot(cast)">
@@ -134,7 +135,8 @@
           Buffs: <br/>
           <span class="buff" *ngFor="let buff of cast.detailBuffs">
             <a target="_blank" href="https://www.wowhead.com/wotlk/spell={{buff.id}}">
-              <span class="icon" [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"></span>
+              <span class="icon" [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"><span
+                class="stack-count" *ngIf="buff.stacks > 1">{{ buff.stacks }}</span></span>
             </a>
           </span>
         </div>
