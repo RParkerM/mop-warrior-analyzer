@@ -1,39 +1,67 @@
 import { SpellId } from 'src/app/logs/models/spell-id.enum';
+import { WarriorSpec } from 'src/app/logs/models/warrior-spec.enum';
 import { TimelineSummary } from 'src/app/report/summary/timeline.summary';
 import { BaseSummary } from 'src/app/report/summary/base.summary';
-import { MortalStrikeSummary } from 'src/app/report/summary/mortal-strike.summary';
+import { SpellSummary } from 'src/app/report/summary/spell.summary';
 import { ColossusSmashSummary } from 'src/app/report/summary/colossus-smash.summary';
 
 export enum Tab {
-  Timeline = 0,
-  MortalStrike,
-  ColossusSmash
+  Timeline = 0
 }
 
-export const TabDefinitions: ITabDefinition[] = [
-  // Tab.Timeline
-  {
-    label: 'Timeline',
-    spellId: SpellId.NONE,
-    summaryType: TimelineSummary
-  },
+const timelineTab: ITabDefinition = {
+  label: 'Timeline',
+  spellId: SpellId.NONE,
+  summaryType: TimelineSummary
+};
 
-  // Tab.MortalStrike
+const colossusSmashTab: ITabDefinition = {
+  label: 'Colossus Smash',
+  icon: 'colossus-smash',
+  spellId: SpellId.COLOSSUS_SMASH,
+  summaryType: ColossusSmashSummary
+};
+
+const armsTabs: ITabDefinition[] = [
+  timelineTab,
   {
     label: 'Mortal Strike',
     icon: 'mortal-strike',
     spellId: SpellId.MORTAL_STRIKE,
-    summaryType: MortalStrikeSummary
+    summaryType: SpellSummary
   },
-
-  // Tab.ColossusSmash
-  {
-    label: 'Colossus Smash',
-    icon: 'colossus-smash',
-    spellId: SpellId.COLOSSUS_SMASH,
-    summaryType: ColossusSmashSummary
-  },
+  colossusSmashTab,
 ];
+
+const furyTabs: ITabDefinition[] = [
+  timelineTab,
+  {
+    label: 'Bloodthirst',
+    icon: 'bloodthirst',
+    spellId: SpellId.BLOODTHIRST,
+    summaryType: SpellSummary
+  },
+  {
+    label: 'Raging Blow',
+    icon: 'raging-blow',
+    spellId: SpellId.RAGING_BLOW,
+    summaryType: SpellSummary
+  },
+  colossusSmashTab,
+];
+
+export function tabsForSpec(spec: WarriorSpec): ITabDefinition[] {
+  switch (spec) {
+    case WarriorSpec.FURY:
+      return furyTabs;
+
+    case WarriorSpec.ARMS:
+      return armsTabs;
+
+    default:
+      return [timelineTab, colossusSmashTab];
+  }
+}
 
 export interface ITabDefinition {
   label: string;

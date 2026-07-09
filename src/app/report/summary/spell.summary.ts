@@ -6,7 +6,10 @@ import { EncounterFields } from 'src/app/report/summary/fields/encounter.fields'
 import { HitFields } from 'src/app/report/summary/fields/hit.fields';
 import { CastStats } from 'src/app/report/models/cast-stats';
 
-export class MortalStrikeSummary extends BaseSummary {
+/**
+ * Generic per-spell summary: casts, hits, crit rate, encounter stats.
+ */
+export class SpellSummary extends BaseSummary {
   private summaryFields: SummaryFields;
   private hitFields: HitFields;
   private encounterFields: EncounterFields;

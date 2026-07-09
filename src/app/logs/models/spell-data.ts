@@ -112,6 +112,26 @@ export class Spell {
       damageType: DamageType.DIRECT,
     }),
 
+    // CORE ROTATION - FURY
+    [SpellId.BLOODTHIRST]: data({
+      damageType: DamageType.DIRECT,
+      cooldown: 4.5,
+    }),
+
+    // hits with both weapons; damage arrives as separate MH/OH events.
+    // Meat Cleaver stacks add up to 3 extra targets: 4 targets x 2 weapons
+    [SpellId.RAGING_BLOW]: data({
+      damageType: DamageType.DIRECTAOE,
+      damageIds: [SpellId.RAGING_BLOW_MH, SpellId.RAGING_BLOW_OH],
+      multiTarget: true,
+      maxDamageInstances: 8,
+      maxDuration: 0.1,
+    }),
+
+    [SpellId.WILD_STRIKE]: data({
+      damageType: DamageType.DIRECT,
+    }),
+
     [SpellId.SLAM]: data({
       damageType: DamageType.DIRECT,
     }),
@@ -128,6 +148,7 @@ export class Spell {
     [SpellId.CLEAVE]: data({
       damageType: DamageType.DIRECTAOE,
       multiTarget: true,
+      maxDuration: 0.5,
       gcd: false,
     }),
 
@@ -144,6 +165,7 @@ export class Spell {
     [SpellId.WHIRLWIND]: data({
       damageType: DamageType.DIRECTAOE,
       multiTarget: true,
+      maxDuration: 0.5,
     }),
 
     [SpellId.BLADESTORM_CAST]: data({

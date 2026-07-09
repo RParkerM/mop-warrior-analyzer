@@ -91,6 +91,14 @@ export class EventAnalyzer {
           this.removeBuff(event as IBuffData);
           continue;
 
+        // stack-count changes on an already-active buff (e.g. Bloodsurge,
+        // Raging Blow charges) don't change which buffs are up
+        case 'applybuffstack':
+        case 'removebuffstack':
+        case 'applydebuffstack':
+        case 'removedebuffstack':
+          continue;
+
         case 'begincast':
           startingCast = event as ICastData;
           activeStats = HasteUtils.calc(this.baseStats, this.buffs);
@@ -102,6 +110,11 @@ export class EventAnalyzer {
       currentCast = event as ICastData;
       const castId = mapSpellId(currentCast.ability.guid);
       const baseSpellData = Spell.dataBySpellId[castId];
+
+      if (!baseSpellData) {
+        console.log(`Skipping event with unknown spell id ${castId} (${currentCast.ability?.name}, type ${event.type})`);
+        continue;
+      }
 
       // if the completed cast isn't the one we started, remove starting info
       // note that starting cast events don't have the target info but we shouldn't need to match it

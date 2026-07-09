@@ -351,9 +351,54 @@
     background-image: url("/feral/assets/ability_warrior_savageblow.jpg");
   }
 
+  // Bloodthirst shares its icon art with Bloodlust
+  &.spell-23881,
+  &.spell-bloodthirst {
+    background-image: url("/feral/assets/bloodlust.jpg");
+  }
+
+  &.spell-85288,
+  &.spell-85384,
+  &.spell-96103,
+  &.spell-131116,
+  &.spell-raging-blow {
+    background-image: url("/feral/assets/warrior_talent_icon_innerrage.jpg");
+  }
+
+  &.spell-100130,
+  &.spell-wild-strike {
+    background-image: url("/feral/assets/ability_meleedamage.jpg");
+  }
+
+  &.spell-1680,
+  &.spell-whirlwind {
+    background-image: url("/feral/assets/ability_meleedamage.jpg");
+  }
+
   &.spell-18499,
   &.spell-berserker-rage {
     background-image: url("/feral/assets/spell_nature_ancestralguardian.jpg");
+  }
+
+  // Warrior Enrage (the feral druid version is .spell-5229 above)
+  &.spell-12880,
+  &.spell-warrior-enrage {
+    background-image: url("/feral/assets/spell_shadow_unholyfrenzy.jpg");
+  }
+
+  &.spell-46916,
+  &.spell-bloodsurge {
+    background-image: url("/feral/assets/ability_warrior_bloodsurge.jpg");
+  }
+
+  &.spell-80353,
+  &.spell-time-warp {
+    background-image: url("/feral/assets/ability_mage_timewarp.jpg");
+  }
+
+  &.spell-90355,
+  &.spell-ancient-hysteria {
+    background-image: url("/feral/assets/ability_hunter_pet_corehound.jpg");
   }
 
   &.spell-5308,
@@ -371,6 +416,7 @@
     background-image: url("/feral/assets/ability_warrior_bladestorm.jpg");
   }
 
+  &.spell-96228,
   &.spell-126734,
   &.spell-synapse-springs {
     background-image: url("/feral/assets/spell_shaman_elementaloath.jpg");
@@ -406,6 +452,7 @@
     background-image: url("/feral/assets/ability_warrior_offensivestance.jpg");
   }
 
+  &.spell-114206,
   &.spell-114207,
   &.spell-skull-banner {
     background-image: url("/feral/assets/warrior_skullbanner.jpg");

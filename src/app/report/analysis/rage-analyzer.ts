@@ -42,11 +42,14 @@ export class RageAnalyzer {
   // flat rage generated on cast (MoP values)
   private static RAGE_GEN: { [spellId: number]: number } = {
     [SpellId.MORTAL_STRIKE]: 10,
+    [SpellId.BLOODTHIRST]: 10,
     [SpellId.CHARGE]: 20,
     [SpellId.CHARGE_OG]: 20,
   };
 
-  // rage costs, used when the log's cost field is missing (MoP values)
+  // rage costs, used when the log's cost field is missing (MoP values).
+  // Wild Strike is free with a Bloodsurge proc; the log's cost field
+  // reflects that when present.
   private static RAGE_COST: { [spellId: number]: number } = {
     [SpellId.HEROIC_STRIKE]: 30,
     [SpellId.CLEAVE]: 30,
@@ -55,6 +58,8 @@ export class RageAnalyzer {
     [SpellId.OVERPOWER]: 10,
     [SpellId.THUNDER_CLAP]: 20,
     [SpellId.WHIRLWIND]: 30,
+    [SpellId.RAGING_BLOW]: 10,
+    [SpellId.WILD_STRIKE]: 45,
   };
 
   private static ENRAGE_PROC_RAGE = 10;

@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('MoP Arms Warrior Analyzer');
+    this.title.setTitle('MoP Warrior Analyzer');
     this.player.valueChanges.subscribe(() => {
       this.filterEncounters();
     })

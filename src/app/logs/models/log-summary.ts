@@ -45,7 +45,9 @@ export class LogSummary {
         const actor = new Actor(friendlyData, true, this.anon);
         this.names[actor.id] = actor.name;
 
-        if ((friendlyData.icon === 'Warrior-Arms') && this.hasEncounters(actor)) {
+        // 'Warrior' (no spec suffix) occurs when WCL can't infer a single spec, e.g. a player
+        // who swapped specs mid-raid. Spec is detected per-encounter in PlayerAnalysis anyway.
+        if (['Warrior-Arms', 'Warrior-Fury', 'Warrior'].includes(friendlyData.icon) && this.hasEncounters(actor)) {
           this.warriors.push(actor);
         }
         return actor;

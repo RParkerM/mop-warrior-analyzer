@@ -15,8 +15,10 @@ import { CombatantInfo } from 'src/app/logs/models/combatant-info';
 import { Settings } from 'src/app/settings';
 import { EventPreprocessor } from 'src/app/report/analysis/event-preprocessor';
 import { DebuffUptimeAnalyzer } from 'src/app/report/analysis/debuff-uptime-analyzer';
+import { BuffUptimeAnalyzer } from 'src/app/report/analysis/buff-uptime-analyzer';
 import { IRageStats, RageAnalyzer } from 'src/app/report/analysis/rage-analyzer';
 import { AuraId } from 'src/app/logs/models/aura-id.enum';
+import { WarriorSpec } from 'src/app/logs/models/warrior-spec.enum';
 
 export class PlayerAnalysis {
   public log: LogSummary;
@@ -30,7 +32,9 @@ export class PlayerAnalysis {
   public totalGcds: number;
   public colossusSmashUptime: number;
   public deepWoundsUptime: number;
+  public enrageUptime: number;
   public rageStats: IRageStats;
+  public spec: WarriorSpec;
 
   private _rawStats: ActorStats;
   private _rawEvents: IEncounterEvents;
@@ -130,15 +134,31 @@ export class PlayerAnalysis {
     // find total possible GCDs in encounter
     this.totalGcds = new GcdAnalyzer(this).totalGcds;
 
-    // debuff uptimes
+    this.spec = this.detectSpec();
+
+    // buff/debuff uptimes
     this.colossusSmashUptime = new DebuffUptimeAnalyzer(this, AuraId.COLOSSUS_SMASH).totalUptime;
     this.deepWoundsUptime = new DebuffUptimeAnalyzer(this, AuraId.DEEP_WOUNDS).totalUptime;
+    this.enrageUptime = new BuffUptimeAnalyzer(this, AuraId.ENRAGE).totalUptime;
 
     // rage cap/waste
     this.rageStats = new RageAnalyzer(this).stats;
 
     // Cache result
     PlayerAnalysis._cache[PlayerAnalysis.cacheKey(this.log.id, this.playerId, this.encounter.id)] = this;
+  }
+
+  // detect spec from signature abilities in the cast list
+  private detectSpec(): WarriorSpec {
+    if (this.report.getSpellStats(SpellId.BLOODTHIRST)?.castCount > 0) {
+      return WarriorSpec.FURY;
+    }
+
+    if (this.report.getSpellStats(SpellId.MORTAL_STRIKE)?.castCount > 0) {
+      return WarriorSpec.ARMS;
+    }
+
+    return WarriorSpec.UNKNOWN;
   }
 }
 

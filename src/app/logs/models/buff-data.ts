@@ -81,6 +81,17 @@ export class Buff {
       summaryIcon: true
     }),
 
+    // Fury: free Wild Strike proc from Bloodthirst
+    [AuraId.BLOODSURGE]: buff({
+      trigger: BuffTrigger.EXTERNAL,
+      summaryIcon: true
+    }),
+
+    // Fury: Raging Blow usable (gained on Enrage)
+    [AuraId.RAGING_BLOW_PROC]: buff({
+      trigger: BuffTrigger.EXTERNAL
+    }),
+
     [AuraId.SKULL_BANNER]: buff({
       trigger: BuffTrigger.EXTERNAL,
       summaryIcon: true

@@ -4,8 +4,10 @@ import { CastStats } from 'src/app/report/models/cast-stats';
 
 export class DebuffUptimeFields extends BaseFields {
   fields(stats: CastStats) {
-    const csUptime = 100 * this.analysis.colossusSmashUptime / this.analysis.encounter.duration;
-    const dwUptime = 100 * this.analysis.deepWoundsUptime / this.analysis.encounter.duration;
+    const duration = this.analysis.encounter.duration;
+    const csUptime = 100 * this.analysis.colossusSmashUptime / duration;
+    const dwUptime = 100 * this.analysis.deepWoundsUptime / duration;
+    const enrageUptime = 100 * this.analysis.enrageUptime / duration;
 
     return [
       this.field({
@@ -17,6 +19,11 @@ export class DebuffUptimeFields extends BaseFields {
       this.field({
         label: 'Deep Wounds Uptime',
         value: format(dwUptime, 2, '%')
+      }),
+
+      this.field({
+        label: 'Enrage Uptime',
+        value: format(enrageUptime, 2, '%')
       }),
     ];
   }

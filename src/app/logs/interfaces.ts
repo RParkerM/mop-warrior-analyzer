@@ -44,7 +44,7 @@ export interface IAbilityData {
 }
 
 export interface IEventData {
-  type: 'combatantinfo' | 'cast' | 'begincast' | 'damage' | 'death' | 'applybuff' | 'removebuff' | 'refreshbuff' | 'applydebuff' | 'applydebuffstack' | 'removedebuff' | 'refreshdebuff';
+  type: 'combatantinfo' | 'cast' | 'begincast' | 'damage' | 'death' | 'applybuff' | 'removebuff' | 'refreshbuff' | 'applybuffstack' | 'removebuffstack' | 'applydebuff' | 'applydebuffstack' | 'removedebuff' | 'refreshdebuff' | 'removedebuffstack';
   ability: IAbilityData;
   timestamp: number;
   targetID: number;

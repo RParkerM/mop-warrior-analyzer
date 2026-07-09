@@ -24,7 +24,7 @@
     opacity: 1;
   }
 
-  .downranked {
+  .downranked, .spec-notice {
     margin: 0 auto 15px auto;
     max-width: 70%;
 
@@ -55,7 +55,7 @@
       }
     }
 
-    .downranked {
+    .downranked, .spec-notice {
       max-width: 100%;
     }
   }

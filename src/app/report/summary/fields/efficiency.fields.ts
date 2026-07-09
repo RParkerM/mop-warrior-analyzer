@@ -2,6 +2,7 @@ import { BaseFields, IStatField } from 'src/app/report/summary/fields/base.field
 import { format, NO_VALUE } from 'src/app/report/models/stat-utils';
 import { Spell } from 'src/app/logs/models/spell-data';
 import { SpellId } from 'src/app/logs/models/spell-id.enum';
+import { WarriorSpec } from 'src/app/logs/models/warrior-spec.enum';
 
 /**
  * Cooldown usage efficiency: casts made vs. maximum possible casts
@@ -9,8 +10,17 @@ import { SpellId } from 'src/app/logs/models/spell-id.enum';
  */
 export class EfficiencyFields extends BaseFields {
   fields() {
+    // no meaningful cooldown efficiency to report without a detected spec (e.g. Protection)
+    if (this.analysis.spec === WarriorSpec.UNKNOWN) {
+      return [];
+    }
+
+    const spender = this.analysis.spec === WarriorSpec.FURY ?
+      this.efficiencyField(SpellId.BLOODTHIRST, 'Bloodthirst') :
+      this.efficiencyField(SpellId.MORTAL_STRIKE, 'Mortal Strike');
+
     return [
-      this.efficiencyField(SpellId.MORTAL_STRIKE, 'Mortal Strike'),
+      spender,
       this.efficiencyField(SpellId.COLOSSUS_SMASH, 'Colossus Smash'),
       this.break()
     ];

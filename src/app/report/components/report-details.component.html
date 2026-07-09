@@ -26,6 +26,17 @@
     </mat-card-content>
   </mat-card>
 
+  <mat-card class="spec-notice" *ngIf="specUnknown">
+    <mat-card-content>
+      <h4 class="text-warning">Spec not supported</h4>
+      <p>
+        Could not detect Arms or Fury for this fight (no Mortal Strike or Bloodthirst casts).
+        The player may have been playing Protection, which this analyzer does not support.
+        Analysis will be limited.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
   <mat-tab-group [selectedIndex]="activeTab" (selectedTabChange)="onTabChange($event)">
     <mat-tab *ngFor="let tab of tabs">
       <ng-template mat-tab-label>

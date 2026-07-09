@@ -1,4 +1,4 @@
-# Mists of Pandaria Arms Warrior Log Analyzer
+# Mists of Pandaria Warrior Log Analyzer (Arms & Fury)
 
 To build and run locally, you'll either need [Angular CLI](https://github.com/angular/angular-cli) (built with v14.2.2)
 or [Yarn](https://yarnpkg.com/). If you're familiar with ng-cli commands, you can use those.
@@ -25,6 +25,9 @@ Definitions of stats/terms available via the [Glossary](GLOSSARY.md). -->
 
 ### Changelog
 - July 7, 2026
+  - Fury support: spec is auto-detected from the cast list; Fury gets Bloodthirst and
+    Raging Blow tabs, Bloodthirst cast efficiency, and Enrage uptime. Rage analysis
+    accounts for Bloodthirst generation and Raging Blow/Wild Strike costs.
   - Completed the port from the feral analyzer: removed druid/priest spells, buffs, and analyses.
   - New Arms analyses: Colossus Smash and Deep Wounds uptime, Mortal Strike / Colossus Smash cast efficiency.
   - Mortal Strike and Colossus Smash tabs; rage shown on casts.

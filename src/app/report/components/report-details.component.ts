@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 import { LogsService } from 'src/app/logs/logs.service';
 import { IStatsSearch, PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import { ParamsService, ParamType } from 'src/app/params.service';
-import { ITabDefinition, TabDefinitions } from 'src/app/report/components/tabs';
+import { ITabDefinition, tabsForSpec } from 'src/app/report/components/tabs';
 import { StatHighlights } from 'src/app/report/analysis/stat-highlights';
 import { BaseSummary } from 'src/app/report/summary/base.summary';
 import { IStatField } from 'src/app/report/summary/fields/base.fields';
@@ -20,6 +20,7 @@ import { CastDetails } from 'src/app/report/models/cast-details';
 import { SettingsService } from 'src/app/settings.service';
 import { SettingsHintComponent } from 'src/app/report/components/settings-hint.component';
 import { Spell } from 'src/app/logs/models/spell-data';
+import { WarriorSpec } from 'src/app/logs/models/warrior-spec.enum';
 
 @Component({
   selector: 'report-details',
@@ -155,6 +156,10 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
     return this.form.get('target') as UntypedFormControl;
   }
 
+  get specUnknown() {
+    return this.analysis?.spec === WarriorSpec.UNKNOWN;
+  }
+
   private initializeForm() {
     if (this.params.has(ParamType.TAB)) {
       const tab = parseInt(this.params.get(ParamType.TAB));
@@ -176,7 +181,7 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   }
 
   private initializeTabs() {
-    this.tabs = TabDefinitions.map((definition) => {
+    this.tabs = tabsForSpec(this.analysis.spec).map((definition) => {
       const summary = new (definition.summaryType)(this.analysis, this.highlight);
       const options = this.statOptions(definition.spellId);
       const stats = this.analysis.stats(options);
